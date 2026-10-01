@@ -1,0 +1,16 @@
+{
+  "build": "mybuild",
+  "data_dir": "data-next",
+  "split": "train",
+  "models": [
+    {"id": "z-ai/glm-5.3", "price_per_million": [1.40, 4.40], "needs_reasoning": true}
+  ],
+  "sites": null,
+  "cases_per_batch": 6,
+  "batches_per_generator_per_site": 1,
+  "annotators_per_case": 1,
+  "allow_same_family_labels": true,
+  "briefs": "original",
+  "max_jaccard": 0.8,
+  "budget_usd": 5.0
+}

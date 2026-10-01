@@ -1,0 +1,80 @@
+{
+  "files": {
+    "benchmark.json": {
+      "size": 20100,
+      "sha256": "f3155b4c35523022f2127ba3a97a3d46be772914d4d29362395c34e0e2670fcd"
+    },
+    "caldec-gliner.latency.json": {
+      "size": 325,
+      "sha256": "5456af1f37fbae20808f1b86a89019cf45d7bc9ff3324f59a7b1c806fa3f05ec"
+    },
+    "caldec-gliner.public.eval.json": {
+      "size": 1000,
+      "sha256": "b8c793d00f20277f03b1c703d1c5398f519cbaf87e6f53bb5b3b7f67e0963204"
+    },
+    "caldec-gliner.public.predictions.json": {
+      "size": 400423,
+      "sha256": "38fd8b1cae1845aaeb7f3cc974965a9d6455b7ec531f053bf7ce4d3ed0d77e0b"
+    },
+    "caldec-gliner.test.eval.json": {
+      "size": 3379,
+      "sha256": "08662fc35749c3a577ee762c7a2a842066b5c7b53a5aade4ff0941ae52398912"
+    },
+    "caldec-gliner.test.predictions.json": {
+      "size": 537215,
+      "sha256": "479b09d127de8886f8676cfcb5faa16f7c255c0e18024dbaf51014e90c67a715"
+    },
+    "caldec-laya.latency.json": {
+      "size": 321,
+      "sha256": "38fd099cc17c26ecfd61198280fe39583451652f75e8c88847409ac5d2b24a34"
+    },
+    "caldec-laya.public.predictions.json": {
+      "size": 390450,
+      "sha256": "f4b67d7274a285b7638ea6bb1d30541c36e6a7ea532d646dfed42fb2d34c1c5c"
+    },
+    "caldec-laya.test.predictions.json": {
+      "size": 522414,
+      "sha256": "784032fbb81566e0f3d1e1b926535bcd9f990158f89845c08a1f7a55d55cfb41"
+    },
+    "gliner2.5-decide.public.eval.json": {
+      "size": 998,
+      "sha256": "11e007192dbf4f97e2b676317d17d6825a4d712d48834528ca7685f2a19e426d"
+    },
+    "gliner2.5-decide.public.predictions.json": {
+      "size": 400372,
+      "sha256": "d9eb713babec0765393ce00260c905c0276f6575f169cf1fdfa7bdefdd016a51"
+    },
+    "gliner2.5-decide.test.eval.json": {
+      "size": 3379,
+      "sha256": "9c9fd84fcfcc1e922e5c63553d28d5a9f9a237701d19f8d97c3f9c1f3033e340"
+    },
+    "gliner2.5-decide.test.predictions.json": {
+      "size": 537173,
+      "sha256": "38d1e10ab471e3763b75f23f16e5d58aa60e320f68177ec99849384d32b77eee"
+    },
+    "jev-full.summary.json": {
+      "size": 4562,
+      "sha256": "fcba5c8d150c0bf44c87cdfe99083faf074eef4faacc8c0f44ccb847f9807d04"
+    },
+    "jev.summary.json": {
+      "size": 6182,
+      "sha256": "6f350139e0d932694f6dc472fb1d789223aa0a18bb56010cd8f3fa3b49c9b849"
+    },
+    "laya-base.public.predictions.json": {
+      "size": 390339,
+      "sha256": "d2793f40cc3643ac6ecf9dfcf07885f8a5e2401d3a2bf1c09a2297e8b8df24f7"
+    },
+    "laya-base.test.predictions.json": {
+      "size": 522033,
+      "sha256": "498cc5b7a379c1d0264c89f6d784bad69eebaafcc5295d68847024fcd3b43534"
+    },
+    "laya-specialist.public.predictions.json": {
+      "size": 390094,
+      "sha256": "564211c94f5cb7f04ecff31b67e4998958a83c153d919b9b36591cf9fae62c27"
+    },
+    "laya-specialist.test.predictions.json": {
+      "size": 522578,
+      "sha256": "4c4a9d29feee7e368e104f22649f70cba7f99970d66a3126aaee0ea6114f4a41"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# Trained checkpoints — 1.6 GB each, regenerable from the data and the recipe.
+checkpoints/
+*.safetensors
+*.bin
+
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+data/**/.run.lock
+# The working dataset copy that new builds extend (README, 'Generate your own data')
+data-next/
+data/**/*.log
+
+# Credentials and training artefacts that must never be committed
+.env
+.env.*
+*.pt
+*.ckpt
+.ipynb_checkpoints/
+
+# Raw third-party evaluation responses (Jev, Kev) stay local: the cache for reruns, not a release artefact
+runs/jev-*/responses/
+
+
+.idea/
+dist/

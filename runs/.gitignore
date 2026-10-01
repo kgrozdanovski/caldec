@@ -1,0 +1,8 @@
+# Run outputs (predictions, metadata, call ledgers, per-run summaries) stay local.
+# Only this file, README.md and numbers.json are tracked.
+*
+!.gitignore
+!README.md
+!numbers.json
+!evidence/
+!evidence/**

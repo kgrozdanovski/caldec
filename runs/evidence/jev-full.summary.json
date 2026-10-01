@@ -1,0 +1,212 @@
+{
+ "model": "typesafe/jev-1.13",
+ "endpoint": "https://openrouter.ai/api/alpha/decisions",
+ "date": "2026-10-01T08:55:52.844007+00:00",
+ "git_revision": "3143cd9e84921d13ca780ea2894a18f83777570a",
+ "build": null,
+ "sets": {
+  "internal": {
+   "cases": 1647,
+   "answered_cases": 1647,
+   "missing_decisions": 0,
+   "dataset_sha256": "91ff7840338b8bb3015368feb41aa28d3e03eb08bd48e7b7e547f691d6bf6835",
+   "allow_partial": false,
+   "resolved_model": [
+    "typesafe/jev-1.13-20260917"
+   ],
+   "metrics": {
+    "n": 3452,
+    "n_untied": 3372,
+    "accuracy": 0.8363,
+    "soft_accuracy": 0.8305,
+    "brier": 0.044,
+    "soft_nll": 0.8105,
+    "ece": 0.0425,
+    "score_mae": 0.3542
+   },
+   "metrics_floored": {
+    "n": 3452,
+    "n_untied": 3372,
+    "accuracy": 0.8363,
+    "soft_accuracy": 0.8315,
+    "brier": 0.0439,
+    "soft_nll": 0.5991,
+    "ece": 0.0433,
+    "score_mae": 0.3513
+   },
+   "accuracy_all_decisions_first_option": 0.8357,
+   "by_site": {
+    "ambient.react": {
+     "n": 70,
+     "n_untied": 70,
+     "accuracy": 0.6286,
+     "soft_accuracy": 0.7078,
+     "brier": 0.051,
+     "soft_nll": 1.5972,
+     "ece": 0.1499
+    },
+    "ambient.salience": {
+     "n": 402,
+     "n_untied": 398,
+     "accuracy": 0.7864,
+     "soft_accuracy": 0.8197,
+     "brier": 0.041,
+     "soft_nll": 1.0275,
+     "ece": 0.058,
+     "score_mae": 0.2818
+    },
+    "compute.irreversible": {
+     "n": 220,
+     "n_untied": 217,
+     "accuracy": 0.788,
+     "soft_accuracy": 0.7914,
+     "brier": 0.0424,
+     "soft_nll": 0.9122,
+     "ece": 0.0697,
+     "score_mae": 0.2957
+    },
+    "gateway.refusal": {
+     "n": 77,
+     "n_untied": 77,
+     "accuracy": 0.8701,
+     "soft_accuracy": 0.879,
+     "brier": 0.0408,
+     "soft_nll": 0.3822,
+     "ece": 0.0712
+    },
+    "memory.preference": {
+     "n": 246,
+     "n_untied": 190,
+     "accuracy": 0.8316,
+     "soft_accuracy": 0.8459,
+     "brier": 0.0414,
+     "soft_nll": 0.5968,
+     "ece": 0.1163
+    },
+    "memory.session_split": {
+     "n": 82,
+     "n_untied": 82,
+     "accuracy": 0.9268,
+     "soft_accuracy": 0.8894,
+     "brier": 0.0376,
+     "soft_nll": 0.4059,
+     "ece": 0.0657
+    },
+    "memory.triage": {
+     "n": 288,
+     "n_untied": 288,
+     "accuracy": 0.8299,
+     "soft_accuracy": 0.8387,
+     "brier": 0.0445,
+     "soft_nll": 0.7391,
+     "ece": 0.0499,
+     "score_mae": 0.1837
+    },
+    "scheduled.speak": {
+     "n": 138,
+     "n_untied": 135,
+     "accuracy": 0.8963,
+     "soft_accuracy": 0.8744,
+     "brier": 0.0355,
+     "soft_nll": 0.5259,
+     "ece": 0.081
+    },
+    "skill.review": {
+     "n": 342,
+     "n_untied": 335,
+     "accuracy": 0.7612,
+     "soft_accuracy": 0.7963,
+     "brier": 0.0445,
+     "soft_nll": 0.7386,
+     "ece": 0.08,
+     "score_mae": 0.6941
+    },
+    "task.route": {
+     "n": 76,
+     "n_untied": 75,
+     "accuracy": 0.92,
+     "soft_accuracy": 0.8637,
+     "brier": 0.018,
+     "soft_nll": 2.1697,
+     "ece": 0.0573
+    },
+    "tool.risk": {
+     "n": 225,
+     "n_untied": 224,
+     "accuracy": 0.9062,
+     "soft_accuracy": 0.8407,
+     "brier": 0.0349,
+     "soft_nll": 0.7253,
+     "ece": 0.1067,
+     "score_mae": 0.2161
+    },
+    "tools.injection": {
+     "n": 103,
+     "n_untied": 102,
+     "accuracy": 0.8725,
+     "soft_accuracy": 0.8838,
+     "brier": 0.0382,
+     "soft_nll": 0.3862,
+     "ece": 0.0548
+    },
+    "turn.tier": {
+     "n": 202,
+     "n_untied": 202,
+     "accuracy": 0.8861,
+     "soft_accuracy": 0.8601,
+     "brier": 0.0401,
+     "soft_nll": 0.8485,
+     "ece": 0.0565
+    },
+    "turn.toolsets": {
+     "n": 400,
+     "n_untied": 398,
+     "accuracy": 0.8794,
+     "soft_accuracy": 0.8307,
+     "brier": 0.0603,
+     "soft_nll": 0.4221,
+     "ece": 0.0633
+    },
+    "voice.addressee": {
+     "n": 139,
+     "n_untied": 138,
+     "accuracy": 0.7971,
+     "soft_accuracy": 0.7958,
+     "brier": 0.0712,
+     "soft_nll": 0.5405,
+     "ece": 0.133
+    },
+    "voice.backchannel": {
+     "n": 76,
+     "n_untied": 76,
+     "accuracy": 0.8816,
+     "soft_accuracy": 0.8453,
+     "brier": 0.0308,
+     "soft_nll": 1.8272,
+     "ece": 0.0707
+    },
+    "voice.endpoint": {
+     "n": 222,
+     "n_untied": 222,
+     "accuracy": 0.8514,
+     "soft_accuracy": 0.841,
+     "brier": 0.0416,
+     "soft_nll": 0.6022,
+     "ece": 0.0932
+    },
+    "workflow.outcome": {
+     "n": 144,
+     "n_untied": 143,
+     "accuracy": 0.8392,
+     "soft_accuracy": 0.8136,
+     "brier": 0.0427,
+     "soft_nll": 1.8685,
+     "ece": 0.0594
+    }
+   },
+   "wall_clock_s": 0.2
+  }
+ },
+ "spend_usd": 0.0307,
+ "input_tokens": 729999
+}

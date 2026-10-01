@@ -1,0 +1,18 @@
+{
+  "model": "laya",
+  "checkpoint": "checkpoints/v1-laya/final",
+  "device": "NVIDIA GeForce RTX 4080 SUPER",
+  "case_id": "015090bb068204b7",
+  "warmup": 10,
+  "samples": 40,
+  "results": {
+    "1q": {
+      "p50_ms": 16.9,
+      "p95_ms": 17.7
+    },
+    "3q": {
+      "p50_ms": 18.3,
+      "p95_ms": 19.3
+    }
+  }
+}

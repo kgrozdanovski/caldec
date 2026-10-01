@@ -1,0 +1,5 @@
+# Build records stay local: call journals, raw responses, per-annotator labels,
+# protocols, freeze hashes. Only this file and README.md are tracked.
+*
+!.gitignore
+!README.md

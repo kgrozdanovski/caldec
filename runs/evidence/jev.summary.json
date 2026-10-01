@@ -1,0 +1,288 @@
+{
+ "model": "typesafe/jev-1.13",
+ "endpoint": "https://openrouter.ai/api/alpha/decisions",
+ "date": "2026-09-27T20:07:52.431524+00:00",
+ "git_revision": "117910e4ea21602c9b5328bbb35dad54ca0abc72",
+ "sets": {
+  "internal": {
+   "cases": 783,
+   "answered_cases": 783,
+   "missing_decisions": 0,
+   "resolved_model": [
+    "typesafe/jev-1.13-20260917"
+   ],
+   "metrics": {
+    "n": 1628,
+    "n_untied": 1572,
+    "accuracy": 0.8295,
+    "soft_accuracy": 0.8305,
+    "brier": 0.0419,
+    "soft_nll": 0.8607,
+    "ece": 0.065,
+    "score_mae": 0.401
+   },
+   "metrics_floored": {
+    "n": 1628,
+    "n_untied": 1572,
+    "accuracy": 0.8295,
+    "soft_accuracy": 0.8314,
+    "brier": 0.0418,
+    "soft_nll": 0.6324,
+    "ece": 0.0647,
+    "score_mae": 0.3984
+   },
+   "accuracy_all_decisions_first_option": 0.8286,
+   "by_site": {
+    "ambient.react": {
+     "n": 22,
+     "n_untied": 22,
+     "accuracy": 0.7273,
+     "soft_accuracy": 0.7686,
+     "brier": 0.0322,
+     "soft_nll": 1.4801,
+     "ece": 0.1877
+    },
+    "ambient.salience": {
+     "n": 258,
+     "n_untied": 254,
+     "accuracy": 0.7992,
+     "soft_accuracy": 0.83,
+     "brier": 0.0332,
+     "soft_nll": 1.1882,
+     "ece": 0.0743,
+     "score_mae": 0.278
+    },
+    "compute.irreversible": {
+     "n": 124,
+     "n_untied": 122,
+     "accuracy": 0.8033,
+     "soft_accuracy": 0.7767,
+     "brier": 0.0507,
+     "soft_nll": 0.9061,
+     "ece": 0.0691,
+     "score_mae": 0.2961
+    },
+    "gateway.refusal": {
+     "n": 29,
+     "n_untied": 29,
+     "accuracy": 0.8966,
+     "soft_accuracy": 0.8907,
+     "brier": 0.0343,
+     "soft_nll": 0.3625,
+     "ece": 0.1241
+    },
+    "memory.preference": {
+     "n": 150,
+     "n_untied": 112,
+     "accuracy": 0.8304,
+     "soft_accuracy": 0.8446,
+     "brier": 0.0412,
+     "soft_nll": 0.6013,
+     "ece": 0.1647
+    },
+    "memory.session_split": {
+     "n": 34,
+     "n_untied": 34,
+     "accuracy": 0.9412,
+     "soft_accuracy": 0.9015,
+     "brier": 0.0369,
+     "soft_nll": 0.3871,
+     "ece": 0.09
+    },
+    "memory.triage": {
+     "n": 96,
+     "n_untied": 96,
+     "accuracy": 0.8333,
+     "soft_accuracy": 0.8543,
+     "brier": 0.0334,
+     "soft_nll": 0.8972,
+     "ece": 0.1051,
+     "score_mae": 0.2008
+    },
+    "scheduled.speak": {
+     "n": 42,
+     "n_untied": 41,
+     "accuracy": 0.8537,
+     "soft_accuracy": 0.8498,
+     "brier": 0.0455,
+     "soft_nll": 0.5811,
+     "ece": 0.1066
+    },
+    "skill.review": {
+     "n": 198,
+     "n_untied": 192,
+     "accuracy": 0.7188,
+     "soft_accuracy": 0.7844,
+     "brier": 0.0459,
+     "soft_nll": 0.7844,
+     "ece": 0.1227,
+     "score_mae": 0.8235
+    },
+    "task.route": {
+     "n": 28,
+     "n_untied": 28,
+     "accuracy": 0.9643,
+     "soft_accuracy": 0.8632,
+     "brier": 0.0125,
+     "soft_nll": 2.6882,
+     "ece": 0.0479
+    },
+    "tool.risk": {
+     "n": 81,
+     "n_untied": 81,
+     "accuracy": 0.9012,
+     "soft_accuracy": 0.828,
+     "brier": 0.0423,
+     "soft_nll": 0.7213,
+     "ece": 0.1227,
+     "score_mae": 0.1785
+    },
+    "tools.injection": {
+     "n": 55,
+     "n_untied": 54,
+     "accuracy": 0.9444,
+     "soft_accuracy": 0.9122,
+     "brier": 0.0248,
+     "soft_nll": 0.3347,
+     "ece": 0.0856
+    },
+    "turn.tier": {
+     "n": 106,
+     "n_untied": 106,
+     "accuracy": 0.8774,
+     "soft_accuracy": 0.8462,
+     "brier": 0.048,
+     "soft_nll": 0.9407,
+     "ece": 0.088
+    },
+    "turn.toolsets": {
+     "n": 160,
+     "n_untied": 158,
+     "accuracy": 0.8608,
+     "soft_accuracy": 0.8386,
+     "brier": 0.0567,
+     "soft_nll": 0.4069,
+     "ece": 0.0719
+    },
+    "voice.addressee": {
+     "n": 91,
+     "n_untied": 90,
+     "accuracy": 0.8,
+     "soft_accuracy": 0.8016,
+     "brier": 0.0689,
+     "soft_nll": 0.537,
+     "ece": 0.1197
+    },
+    "voice.backchannel": {
+     "n": 28,
+     "n_untied": 28,
+     "accuracy": 0.8929,
+     "soft_accuracy": 0.8482,
+     "brier": 0.0207,
+     "soft_nll": 2.2936,
+     "ece": 0.0864
+    },
+    "voice.endpoint": {
+     "n": 78,
+     "n_untied": 78,
+     "accuracy": 0.859,
+     "soft_accuracy": 0.865,
+     "brier": 0.0295,
+     "soft_nll": 0.5585,
+     "ece": 0.1445
+    },
+    "workflow.outcome": {
+     "n": 48,
+     "n_untied": 47,
+     "accuracy": 0.8298,
+     "soft_accuracy": 0.8158,
+     "brier": 0.0329,
+     "soft_nll": 2.0091,
+     "ece": 0.1211
+    }
+   },
+   "wall_clock_s": 36.8
+  },
+  "public": {
+   "cases": 400,
+   "answered_cases": 400,
+   "missing_decisions": 0,
+   "resolved_model": [
+    "typesafe/jev-1.13-20260917"
+   ],
+   "metrics": {
+    "n": 2000,
+    "n_untied": 1965,
+    "accuracy": 0.7379,
+    "soft_accuracy": 0.7496,
+    "brier": 0.0412,
+    "soft_nll": 2.2715,
+    "ece": 0.0447,
+    "score_mae": 0.3896
+   },
+   "metrics_floored": {
+    "n": 2000,
+    "n_untied": 1965,
+    "accuracy": 0.7379,
+    "soft_accuracy": 0.7527,
+    "brier": 0.0406,
+    "soft_nll": 1.1512,
+    "ece": 0.0395,
+    "score_mae": 0.3822
+   },
+   "accuracy_all_decisions_first_option": 0.7315,
+   "by_site": {
+    "agent_trace_observability": {
+     "n": 500,
+     "n_untied": 488,
+     "accuracy": 0.6352,
+     "soft_accuracy": 0.6895,
+     "brier": 0.0603,
+     "soft_nll": 2.3037,
+     "ece": 0.0986,
+     "score_mae": 0.4953
+    },
+    "customer_service": {
+     "n": 500,
+     "n_untied": 493,
+     "accuracy": 0.7931,
+     "soft_accuracy": 0.7796,
+     "brier": 0.0306,
+     "soft_nll": 2.4333,
+     "ece": 0.0401,
+     "score_mae": 0.2194
+    },
+    "invoice_processing": {
+     "n": 500,
+     "n_untied": 494,
+     "accuracy": 0.7733,
+     "soft_accuracy": 0.7878,
+     "brier": 0.0346,
+     "soft_nll": 1.1224,
+     "ece": 0.1027,
+     "score_mae": 0.3398
+    },
+    "security_incidents": {
+     "n": 500,
+     "n_untied": 490,
+     "accuracy": 0.749,
+     "soft_accuracy": 0.7416,
+     "brier": 0.0392,
+     "soft_nll": 3.2268,
+     "ece": 0.091,
+     "score_mae": 0.5039
+    }
+   },
+   "wall_clock_s": 17.8
+  }
+ },
+ "latency_s": {
+  "note": "network round trip from this machine through OpenRouter to TypeSafe, one case per call; not comparable to the local served-path figures",
+  "calls": 2047,
+  "p50": 0.326,
+  "p95": 0.476,
+  "mean": 0.357
+ },
+ "spend_usd": 0.0465,
+ "input_tokens": 1107757
+}

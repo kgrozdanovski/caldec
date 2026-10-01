@@ -1,0 +1,181 @@
+{
+ "overall": {
+  "n": 3452,
+  "n_untied": 3372,
+  "accuracy": 0.6504,
+  "soft_accuracy": 0.6639,
+  "brier": 0.1052,
+  "soft_nll": 0.7579,
+  "ece": 0.0971,
+  "score_mae": 0.7336
+ },
+ "per_site": {
+  "ambient.react": {
+   "n": 70,
+   "n_untied": 70,
+   "accuracy": 0.2,
+   "soft_accuracy": 0.5027,
+   "brier": 0.0933,
+   "soft_nll": 1.3768,
+   "ece": 0.2222
+  },
+  "ambient.salience": {
+   "n": 402,
+   "n_untied": 398,
+   "accuracy": 0.5276,
+   "soft_accuracy": 0.6534,
+   "brier": 0.1028,
+   "soft_nll": 0.8987,
+   "ece": 0.0973,
+   "score_mae": 0.6887
+  },
+  "compute.irreversible": {
+   "n": 220,
+   "n_untied": 217,
+   "accuracy": 0.576,
+   "soft_accuracy": 0.6112,
+   "brier": 0.0982,
+   "soft_nll": 0.962,
+   "ece": 0.139,
+   "score_mae": 0.7715
+  },
+  "gateway.refusal": {
+   "n": 77,
+   "n_untied": 77,
+   "accuracy": 0.7013,
+   "soft_accuracy": 0.6467,
+   "brier": 0.1426,
+   "soft_nll": 0.6378,
+   "ece": 0.135
+  },
+  "memory.preference": {
+   "n": 246,
+   "n_untied": 190,
+   "accuracy": 0.6632,
+   "soft_accuracy": 0.7621,
+   "brier": 0.0843,
+   "soft_nll": 0.6819,
+   "ece": 0.1023
+  },
+  "memory.session_split": {
+   "n": 82,
+   "n_untied": 82,
+   "accuracy": 0.6098,
+   "soft_accuracy": 0.6329,
+   "brier": 0.1515,
+   "soft_nll": 0.6614,
+   "ece": 0.0958
+  },
+  "memory.triage": {
+   "n": 288,
+   "n_untied": 288,
+   "accuracy": 0.684,
+   "soft_accuracy": 0.6766,
+   "brier": 0.1012,
+   "soft_nll": 0.7025,
+   "ece": 0.1249,
+   "score_mae": 0.5212
+  },
+  "scheduled.speak": {
+   "n": 138,
+   "n_untied": 135,
+   "accuracy": 0.8,
+   "soft_accuracy": 0.7824,
+   "brier": 0.0665,
+   "soft_nll": 0.5911,
+   "ece": 0.1346
+  },
+  "skill.review": {
+   "n": 342,
+   "n_untied": 335,
+   "accuracy": 0.6716,
+   "soft_accuracy": 0.6699,
+   "brier": 0.0862,
+   "soft_nll": 0.8054,
+   "ece": 0.1659,
+   "score_mae": 0.8371
+  },
+  "task.route": {
+   "n": 76,
+   "n_untied": 75,
+   "accuracy": 0.8,
+   "soft_accuracy": 0.5702,
+   "brier": 0.0735,
+   "soft_nll": 0.9431,
+   "ece": 0.3223
+  },
+  "tool.risk": {
+   "n": 225,
+   "n_untied": 224,
+   "accuracy": 0.6607,
+   "soft_accuracy": 0.5895,
+   "brier": 0.1247,
+   "soft_nll": 0.8236,
+   "ece": 0.1691,
+   "score_mae": 0.8048
+  },
+  "tools.injection": {
+   "n": 103,
+   "n_untied": 102,
+   "accuracy": 0.7451,
+   "soft_accuracy": 0.7342,
+   "brier": 0.1001,
+   "soft_nll": 0.5274,
+   "ece": 0.1326
+  },
+  "turn.tier": {
+   "n": 202,
+   "n_untied": 202,
+   "accuracy": 0.5644,
+   "soft_accuracy": 0.6798,
+   "brier": 0.1179,
+   "soft_nll": 0.6713,
+   "ece": 0.107
+  },
+  "turn.toolsets": {
+   "n": 400,
+   "n_untied": 398,
+   "accuracy": 0.8015,
+   "soft_accuracy": 0.6868,
+   "brier": 0.1138,
+   "soft_nll": 0.5595,
+   "ece": 0.2182
+  },
+  "voice.addressee": {
+   "n": 139,
+   "n_untied": 138,
+   "accuracy": 0.5725,
+   "soft_accuracy": 0.6775,
+   "brier": 0.1302,
+   "soft_nll": 0.6722,
+   "ece": 0.0844
+  },
+  "voice.backchannel": {
+   "n": 76,
+   "n_untied": 76,
+   "accuracy": 0.6711,
+   "soft_accuracy": 0.5276,
+   "brier": 0.1223,
+   "soft_nll": 0.9885,
+   "ece": 0.2556
+  },
+  "voice.endpoint": {
+   "n": 222,
+   "n_untied": 222,
+   "accuracy": 0.6577,
+   "soft_accuracy": 0.6909,
+   "brier": 0.111,
+   "soft_nll": 0.6705,
+   "ece": 0.1137
+  },
+  "workflow.outcome": {
+   "n": 144,
+   "n_untied": 143,
+   "accuracy": 0.6364,
+   "soft_accuracy": 0.6036,
+   "brier": 0.1137,
+   "soft_nll": 0.8917,
+   "ece": 0.1364
+  }
+ }
+}

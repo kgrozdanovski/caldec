@@ -1,0 +1,18 @@
+# Python 3.12 for this pinned full training and inference environment.
+# Direct dependencies tested with the staged release weights on Python 3.12.
+# Data creation, checking, charting and Hub staging use the standard library.
+# Scoring saved predictions (evaluate.py --compare) needs numpy.
+
+numpy==2.5.3
+torch==2.14.0
+transformers==5.17.0
+laya==0.3.6
+safetensors==0.8.0
+huggingface_hub==1.33.0
+datasets==5.0.1      # Hub dataset loading in the verification recipe
+pyarrow==25.0.1     # benchmark.py reads the public split's parquet files
+
+# GLiNER2.5-Decide transfer (gliner2_transfer.py, TRANSFER.md).
+# gliner2 declares transformers<5 in its extras; it was run here with the pin above.
+gliner2==2.0.0
+peft==0.21.0        # imported by gliner2's trainer, not installed by gliner2 itself

@@ -1,0 +1,54 @@
+{
+ "overall": {
+  "n": 2000,
+  "n_untied": 1965,
+  "accuracy": 0.5399,
+  "soft_accuracy": 0.6623,
+  "brier": 0.0604,
+  "soft_nll": 1.1229,
+  "ece": 0.1473,
+  "score_mae": 0.598
+ },
+ "per_site": {
+  "agent_trace_observability": {
+   "n": 500,
+   "n_untied": 488,
+   "accuracy": 0.5861,
+   "soft_accuracy": 0.6918,
+   "brier": 0.0424,
+   "soft_nll": 1.1769,
+   "ece": 0.2196,
+   "score_mae": 0.6635
+  },
+  "customer_service": {
+   "n": 500,
+   "n_untied": 493,
+   "accuracy": 0.5254,
+   "soft_accuracy": 0.6369,
+   "brier": 0.0527,
+   "soft_nll": 1.1303,
+   "ece": 0.149,
+   "score_mae": 0.4771
+  },
+  "invoice_processing": {
+   "n": 500,
+   "n_untied": 494,
+   "accuracy": 0.5101,
+   "soft_accuracy": 0.581,
+   "brier": 0.1104,
+   "soft_nll": 1.0848,
+   "ece": 0.1131,
+   "score_mae": 0.7411
+  },
+  "security_incidents": {
+   "n": 500,
+   "n_untied": 490,
+   "accuracy": 0.5388,
+   "soft_accuracy": 0.7396,
+   "brier": 0.0362,
+   "soft_nll": 1.0996,
+   "ece": 0.1345,
+   "score_mae": 0.5102
+  }
+ }
+}

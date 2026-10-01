@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+title: "Assistant Decisions: a dataset and recipe for small typed-decision models"
+message: "If you use this dataset or recipe, please cite it."
+type: dataset
+authors:
+  - family-names: "Grozdanovski"
+    given-names: "Kristijan"
+    alias: "kgrozdanovski"
+    email: "kgrozdanovski7@gmail.com"
+    orcid: "https://orcid.org/0009-0003-1978-5469"
+contact:
+  - family-names: "Grozdanovski"
+    given-names: "Kristijan"
+    email: "kgrozdanovski7@gmail.com"
+repository-code: "https://github.com/kgrozdanovski/caldec"
+url: "https://huggingface.co/datasets/kgrozdanovski/assistant-decisions"
+identifiers:
+  - type: url
+    value: "https://huggingface.co/datasets/kgrozdanovski/assistant-decisions"
+    description: "Assistant Decisions dataset on Hugging Face"
+  - type: url
+    value: "https://huggingface.co/kgrozdanovski/caldec-v1-laya"
+    description: "CalDec Laya weights on Hugging Face"
+  - type: url
+    value: "https://huggingface.co/kgrozdanovski/caldec-v1-gliner2.5-decide"
+    description: "CalDec GLiNER weights on Hugging Face"
+license: Apache-2.0
+version: "1.0"
+date-released: 2026-10-01
+keywords:
+  - typed decisions
+  - calibration
+  - knowledge distillation
+  - AI assistants
+  - prompt injection
