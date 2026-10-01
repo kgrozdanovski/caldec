@@ -77,6 +77,12 @@ CalDec GLiNER did not use this benchmark's train split; CalDec Laya did.
 
 ## Inference
 
+Tested with Python 3.12, `gliner2==2.0.0`, `torch==2.14.0` and `transformers==5.17.0`. The tokenizer config uses the transformers 5 format, and `gliner2` installs transformers only through its extras, so install it explicitly:
+
+```bash
+pip install gliner2==2.0.0 torch==2.14.0 transformers==5.17.0
+```
+
 ```python
 from gliner2 import AutoExtractor
 model = AutoExtractor.from_pretrained("kgrozdanovski/caldec-v1-gliner2.5-decide")

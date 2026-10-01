@@ -58,6 +58,12 @@ Accuracy means agreement with synthetic target labels on untied decisions. The A
 
 ## Inference
 
+Tested with Python 3.12, `laya==0.3.6`, `torch==2.14.0` and `transformers==5.17.0`:
+
+```bash
+pip install laya==0.3.6 torch==2.14.0 transformers==5.17.0
+```
+
 ```python
 import os
 os.environ["USE_TF"] = "0"

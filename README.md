@@ -24,11 +24,13 @@ The Assistant Decisions test has **1,647 cases, 3,452 decisions, and 3,372 untie
 |---|---:|---:|---:|---:|
 | **CalDec GLiNER** | **0.843** | **0.039** | **0.552** | 0.582 |
 | Jev 1.13, zero-shot | 0.836 | 0.042 | 0.811 | 0.738 |
-| **CalDec Laya** | 0.823 | 0.072 | 0.559 | **0.778** |
+| **CalDec Laya** | 0.823 | 0.072 | 0.559 | **0.778**† |
 | GLiNER2.5-Decide | 0.650 | 0.097 | 0.758 | 0.540 |
-| Laya specialist | 0.578 | 0.041 | 0.805 | 0.773 |
+| Laya specialist | 0.578 | 0.041 | 0.805 | 0.773† |
 | Majority class, fitted on train | 0.574 | — | — | — |
 | Laya base | 0.557 | 0.158 | 0.989 | 0.361 |
+
+† Trained on the `LocalLLaMA/typed-decisions` train split, so this test score is not zero-shot.
 
 `Laya base` is the upstream [`convaiinnovations/laya`](https://huggingface.co/convaiinnovations/laya) checkpoint. `Laya specialist` is the upstream [`convaiinnovations/laya-typed-decisions`](https://huggingface.co/convaiinnovations/laya-typed-decisions) checkpoint, fine-tuned on the Typed Decisions train split. [JEV.md](JEV.md) documents the hosted reference and its scoring path.
 

@@ -55,11 +55,13 @@ Assistant accuracy is agreement with the synthetic target's argmax on 3,372 unti
 |---|---:|---:|---:|---:|
 | [CalDec GLiNER](https://huggingface.co/kgrozdanovski/caldec-v1-gliner2.5-decide) | **0.843** | **0.039** | **0.552** | 0.582 |
 | Jev 1.13, zero-shot via OpenRouter | 0.836 | 0.042 | 0.811 | 0.738 |
-| [CalDec Laya](https://huggingface.co/kgrozdanovski/caldec-v1-laya) | 0.823 | 0.072 | 0.559 | **0.778** |
+| [CalDec Laya](https://huggingface.co/kgrozdanovski/caldec-v1-laya) | 0.823 | 0.072 | 0.559 | **0.778**† |
 | [GLiNER2.5-Decide](https://huggingface.co/fastino/GLiNER2.5-Decide) | 0.650 | 0.097 | 0.758 | 0.540 |
-| Laya specialist | 0.578 | 0.041 | 0.805 | 0.773 |
+| Laya specialist | 0.578 | 0.041 | 0.805 | 0.773† |
 | Majority class, fitted on train | 0.574 | — | — | — |
 | Laya base | 0.557 | 0.158 | 0.989 | 0.361 |
+
+† Trained on the `LocalLLaMA/typed-decisions` train split, so this test score is not zero-shot.
 
 `Laya base` means the upstream [`convaiinnovations/laya`](https://huggingface.co/convaiinnovations/laya) checkpoint. `Laya specialist` means the upstream [`convaiinnovations/laya-typed-decisions`](https://huggingface.co/convaiinnovations/laya-typed-decisions) checkpoint, fine-tuned on the Typed Decisions train split.
 
