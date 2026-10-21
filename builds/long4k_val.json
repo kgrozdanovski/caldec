@@ -1,0 +1,60 @@
+{
+ "build": "long4k_val",
+ "data_dir": "data-next",
+ "split": "validation",
+ "models": [
+  {
+   "id": "z-ai/glm-5.3",
+   "price_per_million": [
+    0.08,
+    1.4
+   ],
+   "needs_reasoning": true,
+   "generate_batches": 0
+  },
+  {
+   "id": "xiaomi/mimo-v2.6-pro",
+   "price_per_million": [
+    0.43,
+    0.87
+   ],
+   "needs_reasoning": true,
+   "generate_batches": 0
+  },
+  {
+   "id": "deepseek/deepseek-v4.1-flash",
+   "price_per_million": [
+    0.04,
+    0.14
+   ],
+   "needs_reasoning": true,
+   "generate_batches": 0
+  }
+ ],
+ "sites": [
+  "tools.injection",
+  "compute.irreversible",
+  "skill.review",
+  "workflow.outcome",
+  "memory.preference",
+  "ambient.salience",
+  "scheduled.speak",
+  "tool.risk",
+  "gateway.refusal"
+ ],
+ "cases_per_batch": 2,
+ "batches_per_generator_per_site": 1,
+ "annotators_per_case": 2,
+ "allow_same_family_labels": false,
+ "briefs": "../scripts/briefs/long4k.json",
+ "max_jaccard": 0.8,
+ "budget_usd": 0,
+ "state_length_note": "Each state must be about 4,000 tokens: between 13,000 and 20,000 characters of JSON. Shorter states are rejected.",
+ "min_state_chars": 9000,
+ "max_state_chars": 22000,
+ "generation_max_tokens": 48000,
+ "label_max_tokens": 32000,
+ "generation_reasoning": "max",
+ "label_reasoning": "max",
+ "request_timeout_s": 1800
+}

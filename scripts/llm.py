@@ -19,6 +19,7 @@ import os
 from pathlib import Path
 import re
 import threading
+import time
 import urllib.error
 import urllib.request
 
@@ -27,6 +28,7 @@ import check_data
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data/provenance"   # the current build's records; generate.py points it at the build
 LOCK = threading.Lock()
+RETRIES = 5   # backoff attempts for HTTP 429, 502 and 503
 
 
 def canonical(value):
@@ -77,8 +79,9 @@ class Client:
     """OpenRouter client: journals every call before dispatch, caches every response by
     request hash, and refuses a request that could take spend past the cap."""
 
-    def __init__(self, out, models, cap_usd):
+    def __init__(self, out, models, cap_usd, timeout=240):
         self.out = out
+        self.timeout = timeout
         self.models = models
         self.cap_usd = cap_usd
         self.events = self.out / "calls.jsonl"
@@ -123,22 +126,39 @@ class Client:
         request = urllib.request.Request(spec.get("endpoint", "https://openrouter.ai/api/v1/chat/completions"),
                                          data=canonical(payload).encode(),
                                          headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-        try:
-            with urllib.request.urlopen(request, timeout=240) as response:
-                result = json.load(response)
-        except Exception as exc:
-            # Never log exception bodies, request headers, or credentials.
-            detail = ""
-            if isinstance(exc, urllib.error.HTTPError):
-                try:
-                    error = json.loads(exc.read()).get("error", {})
-                    detail = str(error.get("message", ""))[:300].replace(key, "[redacted]")
-                    print(f"{tag}: {detail}", flush=True)
-                except (ValueError, AttributeError):
-                    pass
-            with LOCK:
-                append(self.events, dict(event="error", call_id=call_id, kind=type(exc).__name__, status=getattr(exc, "code", None)))
-            raise RuntimeError(f"API call {tag}: {type(exc).__name__}, HTTP {getattr(exc, 'code', None)}") from None
+        for attempt in range(RETRIES + 1):
+            try:
+                with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                    result = json.load(response)
+                break
+            except Exception as exc:
+                # Never log exception bodies, request headers, or credentials.
+                status = getattr(exc, "code", None)
+                detail = ""
+                if isinstance(exc, urllib.error.HTTPError):
+                    try:
+                        error = json.loads(exc.read()).get("error", {})
+                        detail = str(error.get("message", ""))[:300].replace(key, "[redacted]")
+                    except (ValueError, AttributeError):
+                        pass
+                # A rate-limit (429) or insufficient-credit (402) reply is a refusal
+                # before any work, so it closes the call at zero cost; a rate limit or
+                # an overload is retried after a backoff.
+                transient = status in (429, 502, 503) and attempt < RETRIES
+                with LOCK:
+                    append(self.events, dict(event="error", call_id=call_id, kind=type(exc).__name__, status=status))
+                    if status in (402, 429):
+                        append(self.events, dict(event="end", call_id=call_id, cost=0.0, usage={}, response_id=None))
+                if not transient:
+                    if detail:
+                        print(f"{tag}: {detail}", flush=True)
+                    raise RuntimeError(f"API call {tag}: {type(exc).__name__}, HTTP {status}") from None
+                time.sleep(min(120, 5 * 2 ** attempt))
+                with LOCK:
+                    if self.spent() + reservation > self.cap_usd:
+                        raise BudgetLimit("Budget cap: no request sent")
+                    call_id = f"{tag}-{len(read_lines(self.events))}"
+                    append(self.events, dict(event="start", call_id=call_id, model=model, reservation=reservation, tag=tag))
         usage = result.get("usage", {})
         cost = usage.get("cost")
         if cost is None or not math.isfinite(float(cost)) or float(cost) < 0:
@@ -163,7 +183,8 @@ def generation_request(protocol, site, family, count, variation):
     brief = p["generation_brief"] if family == "original" else protocol["new_briefs"][site]
     user = canonical(dict(site=site, count=count, generation_brief=brief,
                           diversity_axes=p["diversity_axes"], state_shape=p["state_shape"], variation=variation))
-    user += '\nWrite exactly the requested count. Use invented people and reserved .example domains. No real secrets. Keep each state below 1800 characters. Return {"states": [state, ...]}.'
+    note = protocol.get("state_length_note", "Keep each state below 1800 characters.")
+    user += f'\nWrite exactly the requested count. Use invented people and reserved .example domains. No real secrets. {note} Return {{"states": [state, ...]}}.'
     return system, user
 
 
@@ -261,7 +282,7 @@ def normal(state):
     return re.sub(r"\s+", " ", canonical(state).lower()).strip()
 
 
-def valid_state(state, reference):
+def valid_state(state, reference, max_chars=2200, min_chars=0):
     if not isinstance(state, dict) or set(state) != set(reference):
         return False
     for k, value in state.items():
@@ -275,4 +296,4 @@ def valid_state(state, reference):
             return False
     if "silence_ms" in state and state["silence_ms"] < 0:
         return False
-    return len(canonical(state)) <= 2200
+    return min_chars <= len(canonical(state)) <= max_chars

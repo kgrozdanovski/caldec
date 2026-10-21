@@ -1,0 +1,436 @@
+{
+  "files": {
+    "caldec-ultra-150m-seed2.public.predictions.json": {
+      "size": 356361,
+      "sha256": "55d766c6a5a8c7cac5cf93114a75fabcad4863ec491cb65d58ba26f997a5e4f2"
+    },
+    "caldec-ultra-150m-seed2.test.predictions.json": {
+      "size": 471240,
+      "sha256": "1904fe3e5be66925dd16c899f1a16d20e735ce7d9c4f7370c5a116a120f8e0d3"
+    },
+    "caldec-ultra-150m.public.predictions.json": {
+      "size": 356115,
+      "sha256": "a955c65641964bd4eb75fbcccaccc645ee9ff7694597af436b201a8785cace61"
+    },
+    "caldec-ultra-150m.test.predictions.json": {
+      "size": 471235,
+      "sha256": "19dc5ec708a30269b212cfaed007b01bf87165514dd6b7cf30f36d0598da6c23"
+    },
+    "caldec-ultra-380m-seed2.public.predictions.json": {
+      "size": 356058,
+      "sha256": "f65973ab56db06735410a321e10b05b9a4f4e8002a47c5fceaa48cec354fd52b"
+    },
+    "caldec-ultra-380m-seed2.test.predictions.json": {
+      "size": 471202,
+      "sha256": "311dc071eae572f43abcb71f930cd36d7e75ba167346edd70c19f692964fcd25"
+    },
+    "caldec-ultra-380m.public.predictions.json": {
+      "size": 356364,
+      "sha256": "0ee7be6851909df98429dee8a70a198e04cc708b5fda9ffb175fb047a566af80"
+    },
+    "caldec-ultra-380m.test.predictions.json": {
+      "size": 471143,
+      "sha256": "e403876e631523e40c046ecc45128632c1043218c7f391f3cf7ef551eb8a9537"
+    },
+    "dev-laya-packed-long-sitebalance.public.predictions.json": {
+      "size": 356297,
+      "sha256": "458b90ffdaf59ab2c7a365347b6d0aef238afc67d9f7a213a623d0b28bec47b6"
+    },
+    "dev-laya-packed-long-sitebalance.test.predictions.json": {
+      "size": 471318,
+      "sha256": "8148f6871b1af8b2a679765b48c0ca3809cc5be0fb59320e859657b206b72e4f"
+    },
+    "dev-laya-packed-long.public.predictions.json": {
+      "size": 356160,
+      "sha256": "e9a0601bc7a9ed3f5c710facf08261c50f68208d49ac5b95ad5e3a8de0e9e5f0"
+    },
+    "dev-laya-packed-long.test.predictions.json": {
+      "size": 471110,
+      "sha256": "cb864c56d9cbf3d73bd805ad2ca6937324e5131bc38481b0a1a7fdcf51f7b78a"
+    },
+    "dev-laya-packed1k.public.predictions.json": {
+      "size": 356116,
+      "sha256": "e300f42d9dcc06df1fb6a8b6ddc6bc1b91d99d3aeeb6091187b0656bca296843"
+    },
+    "dev-laya-packed1k.test.predictions.json": {
+      "size": 471259,
+      "sha256": "c4456bc84ae14dd18fc78d429504806cfdadaaad6c161713000e6351a6b65248"
+    },
+    "dev-modernbert-large-short.public.predictions.json": {
+      "size": 356190,
+      "sha256": "74bca5f84a554b85e538c0b85da510bef2dae4d495c810c94ceb60a5f64f7869"
+    },
+    "dev-modernbert-large-short.test.predictions.json": {
+      "size": 471260,
+      "sha256": "091898b58b08c00955d7945e6bcc416b7d456e18768ea4d41f0a51b1f0eb06f6"
+    },
+    "dev-ultra-150m-packed1k-general.public.predictions.json": {
+      "size": 356432,
+      "sha256": "5027a4805eac2822983f8bcf42f7f1c7d6bf4738564746cc1d53bb0e760f5e9a"
+    },
+    "dev-ultra-150m-packed1k-general.test.predictions.json": {
+      "size": 471156,
+      "sha256": "a805da8e7e825068c5949d1d20817e901d56a05c0614276437b6c8e465745a59"
+    },
+    "dev-ultra-150m-packed1k.public.predictions.json": {
+      "size": 356383,
+      "sha256": "a616410216e6d38e0b9cb797583ab3ed102537a6ef6d301bc9ac23b45a0f3831"
+    },
+    "dev-ultra-150m-packed1k.test.predictions.json": {
+      "size": 471336,
+      "sha256": "82815f5bb8f15ca516af296f3d6f865b8f9e486c93ed405c036c77f08bcdd104"
+    },
+    "dev-ultra-150m-packed512.public.predictions.json": {
+      "size": 356230,
+      "sha256": "c92c44395973619b6a455f388e0c7f81e48ef65fed2b6c6645134e29d42aeee8"
+    },
+    "dev-ultra-150m-packed512.test.predictions.json": {
+      "size": 471089,
+      "sha256": "289a49f972b96dd604d25a8108ea9c1e384a1618190f2ae43387cc3309fdad57"
+    },
+    "dev-ultra-150m-short.public.predictions.json": {
+      "size": 356085,
+      "sha256": "69f0f38d9c74dd74fe772f87dbea5533f1dc6d9e3e74fc4152fb823953060d80"
+    },
+    "dev-ultra-150m-short.test.predictions.json": {
+      "size": 471197,
+      "sha256": "1c051c8d39aca21f2e099fd3c16d2dbc3cd648aadfac5d14d7ce36d63676c862"
+    },
+    "dev-ultra-380m-packed1k-seed2.public.predictions.json": {
+      "size": 356168,
+      "sha256": "8354b031a04e722e93af41f8336f8d4149b6b4410991cdd8419e8cd1df51806c"
+    },
+    "dev-ultra-380m-packed1k-seed2.test.predictions.json": {
+      "size": 471279,
+      "sha256": "e54bbf0c836652bdca19090361f7eb50c7c62f05221e272da1963aeb3b4c444e"
+    },
+    "dev-ultra-380m-packed1k.public.predictions.json": {
+      "size": 356104,
+      "sha256": "88af783c7bbc305f345fcf5f2628561a1c2fc6e8dd5f7f6e3bbeebc9cb74f4d3"
+    },
+    "dev-ultra-380m-packed1k.test.predictions.json": {
+      "size": 471241,
+      "sha256": "fac2feaa89b573fb7b32e5a3ab20dd7c4e66cb4ffabde68858fb4e895eb2412c"
+    },
+    "dev-ultra-380m-short.public.predictions.json": {
+      "size": 356048,
+      "sha256": "095de52d58f606b44f27ff55d7882fc06eaffb2e1ac94f049c837144bbeae850"
+    },
+    "dev-ultra-380m-short.test.predictions.json": {
+      "size": 471148,
+      "sha256": "85cd043626986c1662657cbfcbd932a8a9e8769e2252496b65d5363f0c2c4c99"
+    },
+    "index/board.json": {
+      "size": 6341,
+      "sha256": "3c508c87fcda231d34e9d0d9e97544e65e8a90f925b24b46777f1ab4c08df1fa"
+    },
+    "index/caldec-laya.benchmark-summary.json": {
+      "size": 5380,
+      "sha256": "7dd27ee44688e6c96bff6deb74e5792b3ebc22860bce5512027f43bfd7f799c5"
+    },
+    "index/caldec-laya.isarcasm-a-en.json": {
+      "size": 84,
+      "sha256": "23e3184cf3582dff7c9e17bde2a3ddbc03679fb144b787c55ffd6e0958d159a8"
+    },
+    "index/caldec-ultra-150m-seed2.benchmark-summary.json": {
+      "size": 5450,
+      "sha256": "7f351088ac62dd9103df736acdab175ae300e049cd992b69d53aef191b6f4130"
+    },
+    "index/caldec-ultra-150m-seed2.isarcasm-a-en.json": {
+      "size": 85,
+      "sha256": "80624b25ec3a31759cd4f908919d86bed379f22ee598937a728f108d3a869741"
+    },
+    "index/caldec-ultra-150m.benchmark-summary.json": {
+      "size": 5362,
+      "sha256": "3404761fccdb1efec91ad18ea319587b8519a8c5d28b809001a976b2f97a1ca5"
+    },
+    "index/caldec-ultra-150m.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "3418f6dc08d7a62aefb24500cafe7110112e792d014f713841e1ebc0b021404c"
+    },
+    "index/caldec-ultra-380m-seed2.benchmark-summary.json": {
+      "size": 5412,
+      "sha256": "5372f45cfef5d9f8da5966065bc2be68397db72cee2c36559805e17797362aeb"
+    },
+    "index/caldec-ultra-380m-seed2.isarcasm-a-en.json": {
+      "size": 85,
+      "sha256": "aa2732e88e4323ebccdf0b67d60724f349783675a0c435658ba8e41e3ea09a64"
+    },
+    "index/caldec-ultra-380m.benchmark-summary.json": {
+      "size": 5389,
+      "sha256": "ab19ee18b46fb86827787610d91f0178dd943b7521dd1158f10f4b3f61136413"
+    },
+    "index/caldec-ultra-380m.isarcasm-a-en.json": {
+      "size": 85,
+      "sha256": "42e101ef0502525638c295df078fff7c41e2c526bb91ba80441f373d99f20e87"
+    },
+    "index/dev-laya-packed-long-sitebalance.benchmark-summary.json": {
+      "size": 5433,
+      "sha256": "bb4263cb957f3f3a0f3d142b08e8739ffb4ab2c9849d85cf1ab18f710a2dfb14"
+    },
+    "index/dev-laya-packed-long-sitebalance.isarcasm-a-en.json": {
+      "size": 84,
+      "sha256": "d45be4150c39ee93e8cd1186e67afe29085cba33f3fda2f857ebe2da62384517"
+    },
+    "index/dev-laya-packed-long.benchmark-summary.json": {
+      "size": 5395,
+      "sha256": "370bfbb14e734ca68a079bd8aff61baba9640e325cc5ca1981ce039b8bb004fc"
+    },
+    "index/dev-laya-packed-long.isarcasm-a-en.json": {
+      "size": 84,
+      "sha256": "2048248bdbb1a9567ff38f1b29e87cdb05a008b3d6d46909fb8725c5b8bcf9f4"
+    },
+    "index/dev-laya-packed1k.benchmark-summary.json": {
+      "size": 5401,
+      "sha256": "cd7bdc80c0b4815ae4ad47a131399714a2000e5f4f9cf89cce2dedbc8a63f1d8"
+    },
+    "index/dev-laya-packed1k.isarcasm-a-en.json": {
+      "size": 84,
+      "sha256": "c24eb52dd7272c98868c910a70166ae55ddef84fb89f8edc2185e366df3101ac"
+    },
+    "index/dev-ultra-150m-packed1k-general.benchmark-summary.json": {
+      "size": 5398,
+      "sha256": "958dc73d904be0e4fed012343d15f01c1b0769d4ef4550f4bf124027f617dd68"
+    },
+    "index/dev-ultra-150m-packed1k-general.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "617aa010979fdfc4981f59d8fade516950b3437662fa8f03960b5b32b6f8de61"
+    },
+    "index/dev-ultra-150m-packed1k.benchmark-summary.json": {
+      "size": 5367,
+      "sha256": "a789231f53dc1e4834424c8a87fe06080c643f351ec62d409ac67b6443737fa8"
+    },
+    "index/dev-ultra-150m-packed1k.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "975cf5301c5e053e7541b7e1294bdbce42336029b2a7665fb991101a78945514"
+    },
+    "index/dev-ultra-150m-short.benchmark-summary.json": {
+      "size": 5354,
+      "sha256": "06732a2968c69b7370c0aa78a2c81719928b4261ee6fd329d7a79afc9e7d0c5e"
+    },
+    "index/dev-ultra-150m-short.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "975cf5301c5e053e7541b7e1294bdbce42336029b2a7665fb991101a78945514"
+    },
+    "index/dev-ultra-380m-packed1k.benchmark-summary.json": {
+      "size": 5406,
+      "sha256": "4c03a79d60f64dd6f7f019a6512f59ffa837ff77b0b147e8b148a689d1891452"
+    },
+    "index/dev-ultra-380m-packed1k.isarcasm-a-en.json": {
+      "size": 85,
+      "sha256": "e7e7544566195dd26dd2ddc05f678a2103eb509f0daf56431954b106843aea44"
+    },
+    "index/dev-ultra-380m-short.benchmark-summary.json": {
+      "size": 5387,
+      "sha256": "0c3da709027295fd0e0151fc00261ed76b9865ae12fb497fc35de56a2b8ad3db"
+    },
+    "index/dev-ultra-380m-short.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "de3230414d0707222009f49bc7635c973234f575128348533ea260ebea37fbf0"
+    },
+    "index/laya-base.benchmark-summary.json": {
+      "size": 5411,
+      "sha256": "f4ff4264836ad66af132d7b376c2f4bdc8afc7d7770473808bf0c09526063554"
+    },
+    "index/laya-base.isarcasm-a-en.json": {
+      "size": 84,
+      "sha256": "fd6740c41b5814811d7ffb85228e2896606e039fb8477b906d2994f15a588f07"
+    },
+    "index/sample.json": {
+      "size": 598,
+      "sha256": "0986f6cbe403bb53bfdda364260b87ec0dca43d417f9e22c7451c058d167b44c"
+    },
+    "index/ultrabert-150m-zeroshot.benchmark-summary.json": {
+      "size": 5320,
+      "sha256": "93b6e3d8681079380bea6ba16896189fb456b56bd490d3308e923cb00092bd25"
+    },
+    "index/ultrabert-150m-zeroshot.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "975cf5301c5e053e7541b7e1294bdbce42336029b2a7665fb991101a78945514"
+    },
+    "index/ultrabert-380m-zeroshot.benchmark-summary.json": {
+      "size": 5435,
+      "sha256": "2b8f578994598cb4ac6eb2d80060ef0427d0accbf2f2ecbd6578b693ca1703a3"
+    },
+    "index/ultrabert-380m-zeroshot.isarcasm-a-en.json": {
+      "size": 83,
+      "sha256": "3344aa1647232d3babe31fc8f6f349ac7d83904379b6d3852ec6a2a8ec70357a"
+    },
+    "latency/caldec-laya.short.json": {
+      "size": 296,
+      "sha256": "e979d104aee04b56e0a82924abcddba9a2ce5c8e999343f382913d9e355b55b5"
+    },
+    "latency/dev-ultra-150m-short.short.json": {
+      "size": 326,
+      "sha256": "4b692f2a7866afe7c913f75a8ebae997433c98228d1823d1ac0b36ab5c104f90"
+    },
+    "latency/dev-ultra-380m-short.short.json": {
+      "size": 326,
+      "sha256": "eaf3310982df25bd560f939e9afaa6511092117a022f947d6098a673bf74cf2f"
+    },
+    "latency/encoder-dense.json": {
+      "size": 1388,
+      "sha256": "3c4a7aa59fd3220ef8d77fce054e6b2d4095903010ddeacf09580130ff54612b"
+    },
+    "latency/encoder-sparse.json": {
+      "size": 929,
+      "sha256": "26d1cc3877de369ae4a057ca1871cacf3cd2a458b85f98ddd890cacfc6c16cbb"
+    },
+    "latency/long-packed-laya.json": {
+      "size": 589,
+      "sha256": "7fdda78db9f4742d6bdca423293a395dea6c2cb1eb0e0cfaba4ea0b4c45f71a8"
+    },
+    "latency/long-packed-ultra.json": {
+      "size": 1071,
+      "sha256": "ce03e2e4904bc78b426af3f849ec29a2b67e0fe82582be58e7d244b1c8fe25ea"
+    },
+    "latency/long-per-question.json": {
+      "size": 1969,
+      "sha256": "7f5a1825bf9f3a4a355726d23d1e66cea79ca1206df194d54553648274e4ac98"
+    },
+    "latency/long-release.json": {
+      "size": 2829,
+      "sha256": "66f34bb3aa8b6866339053f21275008c3280393ff6ea30d37e333444459185ec"
+    },
+    "long/caldec-gliner.long4k.predictions.json": {
+      "size": 14573,
+      "sha256": "fa6b4c3a4249547ba712c4d5935418c0d4235255526ce67335199d173203b508"
+    },
+    "long/caldec-gliner.long8k.predictions.json": {
+      "size": 10489,
+      "sha256": "769be936ea43d5bbff1213f09b61b9244660e5de1a23e3d1d47dc487c658e035"
+    },
+    "long/caldec-laya.predictions.json": {
+      "size": 24174,
+      "sha256": "a4b09cc44f9d6278c224a12d3707a46ed1e65a2944778409b2d1397ddf8fe771"
+    },
+    "long/caldec-ultra-150m-seed2.predictions.json": {
+      "size": 24229,
+      "sha256": "cdadd065ecb28b3394cb939d59cb235a6922071fef76be05d94c8912e4b0fa13"
+    },
+    "long/caldec-ultra-150m.predictions.json": {
+      "size": 24197,
+      "sha256": "baeb7558d240db3ee5f36d5d7dabfe558c953e0839b8d32068b8530aed790285"
+    },
+    "long/caldec-ultra-380m-seed2.predictions.json": {
+      "size": 24214,
+      "sha256": "bf539e2d27ca07bd46d3ae3765a4e4af0da63863118436dfec7aa6ea7b476674"
+    },
+    "long/caldec-ultra-380m.predictions.json": {
+      "size": 24207,
+      "sha256": "c4e8c69743a1f5b38930dfbd5c78d4376223ff65bf5501f3d58bbf6b9f402120"
+    },
+    "long/dev-laya-packed-long-sitebalance.predictions.json": {
+      "size": 24212,
+      "sha256": "7d30fa3c12fe01349bf097fa6247776242d6987c234681a5f4f68d0abc422103"
+    },
+    "long/dev-laya-packed-long.predictions.json": {
+      "size": 24233,
+      "sha256": "3da618abb7489b588c3d7f012850e86a32bc201c4a8cee817f315ed3063c1bb9"
+    },
+    "long/dev-laya-packed1k.predictions.json": {
+      "size": 24212,
+      "sha256": "fcbd34c2c034ef09cf9c4ade5b1ad2b0eb56bf024e41880a6a6206349146de24"
+    },
+    "long/dev-ultra-150m-packed1k-general.predictions.json": {
+      "size": 24252,
+      "sha256": "51a2a131878fb3ee1d0e87a2f5f2f217b5c317067d7f82044b16f080d22411a5"
+    },
+    "long/dev-ultra-150m-packed1k.predictions.json": {
+      "size": 24212,
+      "sha256": "5fda32d59c457540f52603fa312be7d494af9627f81c5da68f9b54f997dc868f"
+    },
+    "long/dev-ultra-150m-packed512.predictions.json": {
+      "size": 24256,
+      "sha256": "b2322eb1db205d15cb33bdf44b2bd7dcb843c233ebf0617e94c3e16f2b8ca643"
+    },
+    "long/dev-ultra-150m-short.predictions.json": {
+      "size": 24235,
+      "sha256": "bcb04d06cbefbc1f47f31ec058e717f05c31bff535f7dde04021d265fe54db80"
+    },
+    "long/dev-ultra-380m-packed1k.predictions.json": {
+      "size": 24213,
+      "sha256": "9af03f4fd047d2fea139d6223dffbae67b3a34b2a30c9d951e1027d9831354c7"
+    },
+    "long/dev-ultra-380m-short.predictions.json": {
+      "size": 24178,
+      "sha256": "ba6ea0fcb344d8d2969acbe241f878ee7d25af2deb9646e4f1e02aeaca895dbb"
+    },
+    "meta.json": {
+      "size": 9624,
+      "sha256": "436ad7f28e18e0a5e75b1a2276cd62ff84cf65e6cb31ac207ec7937d22d1b8c3"
+    },
+    "probe/caldec-gliner.predictions.json": {
+      "size": 94001,
+      "sha256": "e3535f8f709ee8f0c7efabcdb0b5ffb1670f5733f80f7e13eda5b81cbbe2174b"
+    },
+    "probe/caldec-laya-cut512.predictions.json": {
+      "size": 91521,
+      "sha256": "5fe24d135751184e85e5589ae1e21a52c69c7ed1b8472cc7823d72966e83de97"
+    },
+    "probe/caldec-laya.predictions.json": {
+      "size": 91501,
+      "sha256": "60a3b120b6e86e5e22c3e4887abd71b79fcb06fc390c2276e1d2efc36e5c4a80"
+    },
+    "probe/caldec-ultra-150m-seed2.predictions.json": {
+      "size": 91556,
+      "sha256": "72bd20e4b040008a7d757ab5272b0466a714ce7806575786c6e6fd02e582c844"
+    },
+    "probe/caldec-ultra-150m.predictions.json": {
+      "size": 91524,
+      "sha256": "f6ed1dc515ae6e6fff73e541963fb08416ec6ee1e0640cbab4a41c691591e53e"
+    },
+    "probe/caldec-ultra-380m-seed2.predictions.json": {
+      "size": 91556,
+      "sha256": "f314c1ec654b6fcb7c5325580bf1f1bad99105339b453d87ff1ab9a7cc6bcafe"
+    },
+    "probe/caldec-ultra-380m.predictions.json": {
+      "size": 91548,
+      "sha256": "9272426faca080c9aadd658554365a83092be31f98e7b4d3fb6ba060993fcffa"
+    },
+    "probe/dev-laya-packed-long-sitebalance.predictions.json": {
+      "size": 91571,
+      "sha256": "147b9862413b8ddb42ec42d0ce8dbea70a0f2fd99a5345f877aba9743319e91e"
+    },
+    "probe/dev-laya-packed-long.predictions.json": {
+      "size": 91547,
+      "sha256": "0a0735da9212dd42c4bbc05644c1023bae3588f1b2e795fae6eae69f94f6aaf8"
+    },
+    "probe/dev-laya-packed1k.predictions.json": {
+      "size": 91550,
+      "sha256": "f49f0df50be85a73e9d545b92afbd5b22210a0e8d17ecc60538302210040fa58"
+    },
+    "probe/dev-ultra-150m-packed1k-general.predictions.json": {
+      "size": 91588,
+      "sha256": "6dd112301be2c2b668cd8da139615a3771391757384ec1e4c8f233adb8b012e7"
+    },
+    "probe/dev-ultra-150m-packed1k.predictions.json": {
+      "size": 91538,
+      "sha256": "3c1c086eccb27803af9409d4c8d1777d55bdeea28794bdfc27b0a8723dcf9045"
+    },
+    "probe/dev-ultra-150m-packed512.predictions.json": {
+      "size": 91549,
+      "sha256": "5af3c25226c36f8c592096315deba0bb272feddc848555dc96c58f91baec5a6e"
+    },
+    "probe/dev-ultra-150m-short.predictions.json": {
+      "size": 91559,
+      "sha256": "efef2bb3a6da053a78a6e4e29a31c91620b73da44625aeb48800c2b11b920dd6"
+    },
+    "probe/dev-ultra-380m-packed1k.predictions.json": {
+      "size": 91568,
+      "sha256": "60d4e989600d3ddbc45bdc6706803a38776a8a1b680d27ba6ae6f377e920d435"
+    },
+    "probe/dev-ultra-380m-short.predictions.json": {
+      "size": 91569,
+      "sha256": "bd8d4b17ed58b7493c2fbd26c848c77cbea9d499bfd8f9564eb731881ae5fe45"
+    },
+    "ultrabert-150m-zeroshot.test.predictions.json": {
+      "size": 485990,
+      "sha256": "e0c1e03f9952589b805584a331e172a2d473e0da1cb471b5e55a8d263a60e1ad"
+    },
+    "ultrabert-380m-zeroshot.test.predictions.json": {
+      "size": 485324,
+      "sha256": "50f023c3751847da34899c6814856942e8b23cb30dd46cdfa05684b0f758064a"
+    }
+  }
+}

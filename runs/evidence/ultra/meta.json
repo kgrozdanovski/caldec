@@ -1,0 +1,436 @@
+{
+ "untied": 3372,
+ "all_correct": 0.7007710557532622,
+ "all_wrong": 0.05931198102016608,
+ "oracle": 0.9406880189798339,
+ "by_teacher_confidence": [
+  {
+   "band": [
+    0,
+    0.6
+   ],
+   "n": 332,
+   "share": 0.09845788849347568,
+   "accuracy": {
+    "CalDec Laya": 0.5331325301204819,
+    "CalDec GLiNER": 0.5481927710843374,
+    "ModernBERT-large fresh head": 0.5421686746987951,
+    "CalDec Ultra 150M": 0.5753012048192772,
+    "CalDec Ultra 380M": 0.5421686746987951
+   },
+   "all_wrong": 0.20783132530120482
+  },
+  {
+   "band": [
+    0.6,
+    0.7
+   ],
+   "n": 293,
+   "share": 0.0868920521945433,
+   "accuracy": {
+    "CalDec Laya": 0.5631399317406144,
+    "CalDec GLiNER": 0.6040955631399317,
+    "ModernBERT-large fresh head": 0.6484641638225256,
+    "CalDec Ultra 150M": 0.6450511945392492,
+    "CalDec Ultra 380M": 0.6416382252559727
+   },
+   "all_wrong": 0.16723549488054607
+  },
+  {
+   "band": [
+    0.7,
+    0.8
+   ],
+   "n": 351,
+   "share": 0.10409252669039146,
+   "accuracy": {
+    "CalDec Laya": 0.6923076923076923,
+    "CalDec GLiNER": 0.7321937321937322,
+    "ModernBERT-large fresh head": 0.717948717948718,
+    "CalDec Ultra 150M": 0.717948717948718,
+    "CalDec Ultra 380M": 0.7749287749287749
+   },
+   "all_wrong": 0.08831908831908832
+  },
+  {
+   "band": [
+    0.8,
+    0.9
+   ],
+   "n": 662,
+   "share": 0.1963226571767497,
+   "accuracy": {
+    "CalDec Laya": 0.8081570996978852,
+    "CalDec GLiNER": 0.8534743202416919,
+    "ModernBERT-large fresh head": 0.8141993957703928,
+    "CalDec Ultra 150M": 0.7960725075528701,
+    "CalDec Ultra 380M": 0.8368580060422961
+   },
+   "all_wrong": 0.04984894259818731
+  },
+  {
+   "band": [
+    0.9,
+    0.95
+   ],
+   "n": 706,
+   "share": 0.20937129300118623,
+   "accuracy": {
+    "CalDec Laya": 0.9291784702549575,
+    "CalDec GLiNER": 0.93342776203966,
+    "ModernBERT-large fresh head": 0.9291784702549575,
+    "CalDec Ultra 150M": 0.9065155807365439,
+    "CalDec Ultra 380M": 0.9461756373937678
+   },
+   "all_wrong": 0.019830028328611898
+  },
+  {
+   "band": [
+    0.95,
+    1.0
+   ],
+   "n": 1028,
+   "share": 0.30486358244365364,
+   "accuracy": {
+    "CalDec Laya": 0.9717898832684825,
+    "CalDec GLiNER": 0.9747081712062257,
+    "ModernBERT-large fresh head": 0.9776264591439688,
+    "CalDec Ultra 150M": 0.9737354085603113,
+    "CalDec Ultra 380M": 0.9815175097276264
+   },
+   "all_wrong": 0.0038910505836575876
+  }
+ ],
+ "by_site": {
+  "ambient.react": {
+   "n": 70,
+   "teacher_max_mean": 0.7333285714285716,
+   "share_teacher_below_0.7": 0.34285714285714286,
+   "all_wrong": 0.21428571428571427,
+   "oracle": 0.7857142857142857
+  },
+  "ambient.salience": {
+   "n": 398,
+   "teacher_max_mean": 0.7760301507537689,
+   "share_teacher_below_0.7": 0.31909547738693467,
+   "all_wrong": 0.0829145728643216,
+   "oracle": 0.9170854271356784
+  },
+  "compute.irreversible": {
+   "n": 217,
+   "teacher_max_mean": 0.7870852534562213,
+   "share_teacher_below_0.7": 0.2995391705069124,
+   "all_wrong": 0.11059907834101383,
+   "oracle": 0.8894009216589862
+  },
+  "gateway.refusal": {
+   "n": 77,
+   "teacher_max_mean": 0.8987662337662335,
+   "share_teacher_below_0.7": 0.07792207792207792,
+   "all_wrong": 0.06493506493506493,
+   "oracle": 0.935064935064935
+  },
+  "memory.preference": {
+   "n": 190,
+   "teacher_max_mean": 0.8073684210526316,
+   "share_teacher_below_0.7": 0.2736842105263158,
+   "all_wrong": 0.08947368421052632,
+   "oracle": 0.9105263157894737
+  },
+  "memory.session_split": {
+   "n": 82,
+   "teacher_max_mean": 0.8944207317073171,
+   "share_teacher_below_0.7": 0.07317073170731707,
+   "all_wrong": 0.024390243902439025,
+   "oracle": 0.975609756097561
+  },
+  "memory.triage": {
+   "n": 288,
+   "teacher_max_mean": 0.8418923611111111,
+   "share_teacher_below_0.7": 0.1597222222222222,
+   "all_wrong": 0.059027777777777776,
+   "oracle": 0.9409722222222222
+  },
+  "scheduled.speak": {
+   "n": 135,
+   "teacher_max_mean": 0.8060370370370369,
+   "share_teacher_below_0.7": 0.25925925925925924,
+   "all_wrong": 0.05925925925925926,
+   "oracle": 0.9407407407407408
+  },
+  "skill.review": {
+   "n": 335,
+   "teacher_max_mean": 0.8259985074626863,
+   "share_teacher_below_0.7": 0.23582089552238805,
+   "all_wrong": 0.06567164179104477,
+   "oracle": 0.9343283582089552
+  },
+  "task.route": {
+   "n": 75,
+   "teacher_max_mean": 0.8779200000000001,
+   "share_teacher_below_0.7": 0.09333333333333334,
+   "all_wrong": 0.013333333333333334,
+   "oracle": 0.9866666666666667
+  },
+  "tool.risk": {
+   "n": 224,
+   "teacher_max_mean": 0.8758973214285714,
+   "share_teacher_below_0.7": 0.10714285714285714,
+   "all_wrong": 0.05357142857142857,
+   "oracle": 0.9464285714285714
+  },
+  "tools.injection": {
+   "n": 102,
+   "teacher_max_mean": 0.8976176470588234,
+   "share_teacher_below_0.7": 0.14705882352941177,
+   "all_wrong": 0.00980392156862745,
+   "oracle": 0.9901960784313726
+  },
+  "turn.tier": {
+   "n": 202,
+   "teacher_max_mean": 0.8405272277227726,
+   "share_teacher_below_0.7": 0.1188118811881188,
+   "all_wrong": 0.04950495049504951,
+   "oracle": 0.9504950495049505
+  },
+  "turn.toolsets": {
+   "n": 398,
+   "teacher_max_mean": 0.9091896984924622,
+   "share_teacher_below_0.7": 0.06030150753768844,
+   "all_wrong": 0.020100502512562814,
+   "oracle": 0.9798994974874372
+  },
+  "voice.addressee": {
+   "n": 138,
+   "teacher_max_mean": 0.8538043478260869,
+   "share_teacher_below_0.7": 0.14492753623188406,
+   "all_wrong": 0.028985507246376812,
+   "oracle": 0.9710144927536232
+  },
+  "voice.backchannel": {
+   "n": 76,
+   "teacher_max_mean": 0.8608552631578945,
+   "share_teacher_below_0.7": 0.11842105263157894,
+   "all_wrong": 0.013157894736842105,
+   "oracle": 0.9868421052631579
+  },
+  "voice.endpoint": {
+   "n": 222,
+   "teacher_max_mean": 0.8286711711711712,
+   "share_teacher_below_0.7": 0.14414414414414414,
+   "all_wrong": 0.036036036036036036,
+   "oracle": 0.963963963963964
+  },
+  "workflow.outcome": {
+   "n": 143,
+   "teacher_max_mean": 0.8323391608391607,
+   "share_teacher_below_0.7": 0.2097902097902098,
+   "all_wrong": 0.08391608391608392,
+   "oracle": 0.916083916083916
+  }
+ },
+ "disagreement": {
+  "CalDec Laya | CalDec GLiNER": 0.13018979833926453,
+  "CalDec Laya | ModernBERT-large fresh head": 0.11595492289442468,
+  "CalDec Laya | CalDec Ultra 150M": 0.12188612099644128,
+  "CalDec Laya | CalDec Ultra 380M": 0.12277580071174377,
+  "CalDec GLiNER | ModernBERT-large fresh head": 0.11981020166073547,
+  "CalDec GLiNER | CalDec Ultra 150M": 0.12514827995255043,
+  "CalDec GLiNER | CalDec Ultra 380M": 0.10290628706998814,
+  "ModernBERT-large fresh head | CalDec Ultra 150M": 0.1073546856465006,
+  "ModernBERT-large fresh head | CalDec Ultra 380M": 0.10883748517200474,
+  "CalDec Ultra 150M | CalDec Ultra 380M": 0.10765124555160142
+ },
+ "confidence": {
+  "CalDec Laya": [
+   {
+    "band": [
+     0,
+     0.6
+    ],
+    "n": 703,
+    "confidence": 0.513464493598862,
+    "accuracy": 0.5277382645803699
+   },
+   {
+    "band": [
+     0.6,
+     0.8
+    ],
+    "n": 1084,
+    "confidence": 0.7096896319188192,
+    "accuracy": 0.801660516605166
+   },
+   {
+    "band": [
+     0.8,
+     0.9
+    ],
+    "n": 784,
+    "confidence": 0.8526722346938777,
+    "accuracy": 0.9528061224489796
+   },
+   {
+    "band": [
+     0.9,
+     1.0
+    ],
+    "n": 801,
+    "confidence": 0.9442755855181023,
+    "accuracy": 0.9837702871410736
+   }
+  ],
+  "CalDec GLiNER": [
+   {
+    "band": [
+     0,
+     0.6
+    ],
+    "n": 529,
+    "confidence": 0.5110616313799622,
+    "accuracy": 0.5198487712665406
+   },
+   {
+    "band": [
+     0.6,
+     0.8
+    ],
+    "n": 723,
+    "confidence": 0.7109350788381742,
+    "accuracy": 0.7648686030428768
+   },
+   {
+    "band": [
+     0.8,
+     0.9
+    ],
+    "n": 798,
+    "confidence": 0.8566733032581453,
+    "accuracy": 0.9010025062656641
+   },
+   {
+    "band": [
+     0.9,
+     1.0
+    ],
+    "n": 1322,
+    "confidence": 0.9471737375189108,
+    "accuracy": 0.9795763993948563
+   }
+  ],
+  "ModernBERT-large fresh head": [
+   {
+    "band": [
+     0,
+     0.6
+    ],
+    "n": 683,
+    "confidence": 0.5124635636896048,
+    "accuracy": 0.5724743777452416
+   },
+   {
+    "band": [
+     0.6,
+     0.8
+    ],
+    "n": 998,
+    "confidence": 0.704640373747495,
+    "accuracy": 0.8096192384769539
+   },
+   {
+    "band": [
+     0.8,
+     0.9
+    ],
+    "n": 881,
+    "confidence": 0.855318030646992,
+    "accuracy": 0.9341657207718501
+   },
+   {
+    "band": [
+     0.9,
+     1.0
+    ],
+    "n": 810,
+    "confidence": 0.9385603913580247,
+    "accuracy": 0.9876543209876543
+   }
+  ],
+  "CalDec Ultra 150M": [
+   {
+    "band": [
+     0,
+     0.6
+    ],
+    "n": 704,
+    "confidence": 0.5095311463068182,
+    "accuracy": 0.5596590909090909
+   },
+   {
+    "band": [
+     0.6,
+     0.8
+    ],
+    "n": 992,
+    "confidence": 0.7073484526209677,
+    "accuracy": 0.8024193548387096
+   },
+   {
+    "band": [
+     0.8,
+     0.9
+    ],
+    "n": 874,
+    "confidence": 0.8544217299771167,
+    "accuracy": 0.9416475972540046
+   },
+   {
+    "band": [
+     0.9,
+     1.0
+    ],
+    "n": 802,
+    "confidence": 0.9377324887780547,
+    "accuracy": 0.9812967581047382
+   }
+  ],
+  "CalDec Ultra 380M": [
+   {
+    "band": [
+     0,
+     0.6
+    ],
+    "n": 640,
+    "confidence": 0.51925280625,
+    "accuracy": 0.571875
+   },
+   {
+    "band": [
+     0.6,
+     0.8
+    ],
+    "n": 991,
+    "confidence": 0.7046690474268416,
+    "accuracy": 0.8324924318869829
+   },
+   {
+    "band": [
+     0.8,
+     0.9
+    ],
+    "n": 871,
+    "confidence": 0.8534290436280138,
+    "accuracy": 0.9414466130884042
+   },
+   {
+    "band": [
+     0.9,
+     1.0
+    ],
+    "n": 870,
+    "confidence": 0.9386637816091954,
+    "accuracy": 0.9885057471264368
+   }
+  ]
+ }
+}

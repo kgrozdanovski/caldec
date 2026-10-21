@@ -4,9 +4,9 @@
 
 **Typed decisions for real-time assistants: probabilities from one encoder pass.**
 
-A public dataset, reproducible data and training recipes, two checkpoints, and an evaluation harness.
+A public dataset, reproducible data and training recipes, four checkpoints, and an evaluation harness.
 
-[Dataset](DATASET.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Jev reference](JEV.md) · [GLiNER transfer](TRANSFER.md)
+[Dataset](DATASET.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Jev reference](JEV.md) · [GLiNER transfer](TRANSFER.md) · [CalDec Ultra: long context](ULTRA.md)
 
 </div>
 
@@ -14,7 +14,7 @@ A public dataset, reproducible data and training recipes, two checkpoints, and a
 
 An assistant repeatedly asks closed questions: whether a spoken turn has ended, whether a page tries to instruct an agent, which tools a turn needs, or whether a fact is worth remembering. A typed-decision model takes a state and questions, then returns answers and probabilities without generating text. The supported types are `noul` (yes/no), `choice` (one named option), and `score` (an ordered level).
 
-CalDec provides fine-tunes of [Laya](https://huggingface.co/convaiinnovations/laya) and [GLiNER2.5-Decide](https://huggingface.co/fastino/GLiNER2.5-Decide). They serve the same tasks with different model APIs.
+CalDec provides fine-tunes of [Laya](https://huggingface.co/convaiinnovations/laya) and [GLiNER2.5-Decide](https://huggingface.co/fastino/GLiNER2.5-Decide) for short states, and **CalDec Ultra**, a Laya-format decision head on [UltraBERT](https://arxiv.org/abs/2610.15028) that reads states of up to 8,192 tokens and answers all of a case's questions in one encoder pass. They serve the same tasks with different model APIs.
 
 ## Results
 
@@ -22,9 +22,11 @@ The Assistant Decisions test has **1,647 cases, 3,452 decisions, and 3,372 untie
 
 | Model | Assistant test accuracy | ECE | Soft NLL | `LocalLLaMA/typed-decisions` test accuracy |
 |---|---:|---:|---:|---:|
-| **CalDec GLiNER** | **0.843** | **0.039** | **0.552** | 0.582 |
+| **CalDec Ultra 380M** | **0.848** | 0.086 | **0.539** | **0.796**† |
+| **CalDec GLiNER** | 0.843 | **0.039** | 0.552 | 0.582 |
 | Jev 1.13, zero-shot | 0.836 | 0.042 | 0.811 | 0.738 |
-| **CalDec Laya** | 0.823 | 0.072 | 0.559 | **0.778**† |
+| **CalDec Ultra 150M** | 0.834 | 0.083 | 0.559 | 0.782† |
+| **CalDec Laya** | 0.823 | 0.072 | 0.559 | 0.778† |
 | GLiNER2.5-Decide | 0.650 | 0.097 | 0.758 | 0.540 |
 | Laya specialist | 0.578 | 0.041 | 0.805 | 0.773† |
 | Majority class, fitted on train | 0.574 | — | — | — |
@@ -51,9 +53,11 @@ Every assistant-test row above uses the same 1,647 cases; Jev was called through
   <img alt="CalDec Laya test accuracy by decision site compared with Laya base" src="assets/per-site-light.svg">
 </picture>
 
+**CalDec Ultra for long states.** CalDec Ultra 380M is level with CalDec GLiNER on the assistant test (p = 0.40) and ahead of CalDec Laya (p < 0.0001), and holds that ranking against labels from three other model families. On a held-out long-state test it scores 0.734 against CalDec Laya's 0.563 (p = 0.0004), and answers three questions over an 8K-token state in 170 ms against CalDec Laya's 920 ms. On 8K pages it still misses most injections placed past the middle. CalDec Ultra 150M ties it on long states at 166M parameters. Both are specialists: they score at chance on outside inference benchmarks, where CalDec Laya keeps its base model's breadth. [ULTRA.md](ULTRA.md) has the results, how the models were built, and the evidence.
+
 ## Dataset
 
-The files in [data/](data/) contain **7,436 cases and 15,471 labelled decisions** across 18 sites and six workflows. The dataset creator identifies GLM 5.3 through OpenRouter as the source of every released row; [the datasheet](DATASET.md#collection-and-labels) explains the case IDs and what provenance the public files can verify.
+The files in [data/](data/) contain **7,436 cases and 15,471 labelled decisions** across 18 sites and six workflows. The dataset creator identifies GLM 5.3 through OpenRouter as the source of every row in `data/`; [the datasheet](DATASET.md#collection-and-labels) explains the case IDs and what provenance the public files can verify.
 
 | Split | Cases | Decisions |
 |---|---:|---:|
@@ -63,7 +67,14 @@ The files in [data/](data/) contain **7,436 cases and 15,471 labelled decisions*
 
 Each row has six string fields: `case_id`, `site`, `workflow`, `state`, `questions`, and `gold`. The last three are JSON strings so that Arrow can load states with different shapes; decode them with `json.loads`. The generated states contain prompt-injection examples and invented credentials. Read the [datasheet](DATASET.md) before use. `python3 scripts/check_data.py` validates the schema and scans for live addresses, hosts and key-shaped strings. It also reports exact state overlaps across splits.
 
-[Dataset on Hugging Face](https://huggingface.co/datasets/kgrozdanovski/assistant-decisions) · [CalDec Laya weights](https://huggingface.co/kgrozdanovski/caldec-v1-laya) · [CalDec GLiNER weights](https://huggingface.co/kgrozdanovski/caldec-v1-gliner2.5-decide)
+Two additions sit beside the original splits, which are unchanged:
+
+| Folder | Cases | Decisions | What it is |
+|---|---:|---:|---|
+| [`data-long/`](data-long/) | 117 / 24 / 77 | 244 / 49 / 162 | Long states (about 3–8K tokens) on nine sites, train / validation / test; each generated by one of GLM 5.3, MiMo-V2.6-Pro and DeepSeek V4.1 Flash and labelled by the other two |
+| [`data-relabelled/`](data-relabelled/) | 1,647 | 3,452 | The original test states with new targets from two of Claude Opus 5.5, GPT-5.6 Sol and Gemini 3.8 Flash; for evaluation only |
+
+[Dataset on Hugging Face](https://huggingface.co/datasets/kgrozdanovski/assistant-decisions) · [CalDec Laya weights](https://huggingface.co/kgrozdanovski/caldec-v1-laya) · [CalDec GLiNER weights](https://huggingface.co/kgrozdanovski/caldec-v1-gliner2.5-decide) · [CalDec Ultra 380M weights](https://huggingface.co/kgrozdanovski/caldec-ultra-380m) · [CalDec Ultra 150M weights](https://huggingface.co/kgrozdanovski/caldec-ultra-150m)
 
 ## Use the models
 
@@ -96,6 +107,18 @@ python3 scripts/gliner2_transfer.py zeroshot --model fastino/GLiNER2.5-Decide --
 ```
 
 Replace that path with `kgrozdanovski/caldec-v1-gliner2.5-decide` in a fresh clone. The [CalDec GLiNER card](huggingface/gliner2-model-card.md) includes a direct inference example. CalDec Laya's fitted temperatures ship in `rl_agent_config.json`; CalDec GLiNER's independent sigmoid scores must be normalized across each question's labels. Keep CalDec Laya states within its roughly 320-token state budget.
+
+For long states, load CalDec Ultra through the repository's loader, which registers UltraBERT, enables the sparse attention path and returns the packed agent:
+
+```python
+import sys
+sys.path.insert(0, "scripts")
+from data import load_agent
+agent = load_agent("kgrozdanovski/caldec-ultra-380m")      # or kgrozdanovski/caldec-ultra-150m
+answer = agent.system_one(state, questions)                  # same format as laya.Agent.system_one
+```
+
+[ULTRA.md](ULTRA.md#use) has a complete example.
 
 ## Reproduce training and evaluation
 
@@ -161,6 +184,6 @@ In the working copy, add a `site`, `workflow`, `summary` and typed `questions` e
 
 ## Limitations and provenance
 
-The targets are synthetic GLM 5.3 judgments, and accuracy measures agreement with them. The creation recipe uses GLM 5.3 through OpenRouter by default and supports other model families and OpenAI-compatible providers for new builds. Original API call logs are not part of the public files. The test split was used during development. Several exact states occur in more than one split; `check_data.py` identifies them. The security cases were generated rather than adversarially tested. Short synthetic states may understate real deployment difficulty. These checkpoints are research artifacts, not stand-alone safety controls.
+The targets are synthetic GLM 5.3 judgments, and accuracy measures agreement with them. The creation recipe uses GLM 5.3 through OpenRouter by default and supports other model families and OpenAI-compatible providers for new builds. Original API call logs are not part of the public files. The test split was used during development. Several exact states occur in more than one split; `check_data.py` identifies them. The security cases were generated rather than adversarially tested. Short synthetic states may understate real deployment difficulty; the long-state test is small (158 decisions) and synthetic too. These checkpoints are research artifacts, not stand-alone safety controls.
 
 Apache 2.0; see [LICENSE](LICENSE) and [CITATION.cff](CITATION.cff). The base models and `LocalLLaMA/typed-decisions` dataset are independent projects and do not endorse this work.

@@ -1,0 +1,17 @@
+{
+ "kit": "github.com/apolinario/decision-index (edition 0.2.1 scorers)",
+ "selection": "per benchmark, linked groups ordered by sha256('caldec-v3|'+group id), first groups up to 1,000 requests; the kit's 442 exclusions removed",
+ "run_ids_sha256": "c6af648fe867fa3251758778bebd1673dba5e3c383382d5493932d40fae67c45",
+ "requests": {
+  "ContractNLI": 123,
+  "ANLI": 1000,
+  "MuSR": 752,
+  "iSarcasmEval": 1000,
+  "VAST": 1000,
+  "NLI4CT": 1000,
+  "CLadder": 1000,
+  "PhishNChips phishing decisions": 1000,
+  "When2Call MCQ": 1000
+ },
+ "engine": "scripts/jdi_engine.py, max_len 8192, no truncation"
+}

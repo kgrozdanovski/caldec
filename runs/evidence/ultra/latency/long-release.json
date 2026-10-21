@@ -1,0 +1,164 @@
+{
+ "case_id": "015090bb068204b7",
+ "site": "tool.risk",
+ "questions": 3,
+ "models": {
+  "caldec-laya": {
+   "checkpoint": "kgrozdanovski/caldec-v1-laya",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 33.2,
+     "p95_ms": 34.3
+    },
+    "1024": {
+     "p50_ms": 55.5,
+     "p95_ms": 56.3
+    },
+    "2048": {
+     "p50_ms": 123.0,
+     "p95_ms": 123.9
+    },
+    "4096": {
+     "p50_ms": 330.1,
+     "p95_ms": 333.7
+    },
+    "8192": {
+     "p50_ms": 920.0,
+     "p95_ms": 923.5
+    }
+   }
+  },
+  "dev-ultra-380m-short": {
+   "checkpoint": "development checkpoint dev-ultra-380m-short (not released)",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 32.9,
+     "p95_ms": 33.9
+    },
+    "1024": {
+     "p50_ms": 58.0,
+     "p95_ms": 58.8
+    },
+    "2048": {
+     "p50_ms": 114.3,
+     "p95_ms": 115.7
+    },
+    "4096": {
+     "p50_ms": 275.4,
+     "p95_ms": 276.6
+    },
+    "8192": {
+     "p50_ms": 631.0,
+     "p95_ms": 635.9
+    }
+   }
+  },
+  "dev-ultra-150m-short": {
+   "checkpoint": "development checkpoint dev-ultra-150m-short (not released)",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 23.7,
+     "p95_ms": 26.8
+    },
+    "1024": {
+     "p50_ms": 31.7,
+     "p95_ms": 32.9
+    },
+    "2048": {
+     "p50_ms": 66.8,
+     "p95_ms": 67.9
+    },
+    "4096": {
+     "p50_ms": 159.0,
+     "p95_ms": 164.4
+    },
+    "8192": {
+     "p50_ms": 404.4,
+     "p95_ms": 406.3
+    }
+   }
+  },
+  "dev-laya-packed-long": {
+   "checkpoint": "development checkpoint dev-laya-packed-long (not released)",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 21.3,
+     "p95_ms": 24.6
+    },
+    "1024": {
+     "p50_ms": 23.9,
+     "p95_ms": 24.7
+    },
+    "2048": {
+     "p50_ms": 43.4,
+     "p95_ms": 44.8
+    },
+    "4096": {
+     "p50_ms": 94.5,
+     "p95_ms": 98.6
+    },
+    "8192": {
+     "p50_ms": 261.8,
+     "p95_ms": 263.5
+    }
+   }
+  },
+  "caldec-ultra-380m": {
+   "checkpoint": "kgrozdanovski/caldec-ultra-380m",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 24.9,
+     "p95_ms": 27.0
+    },
+    "1024": {
+     "p50_ms": 25.6,
+     "p95_ms": 30.8
+    },
+    "2048": {
+     "p50_ms": 39.4,
+     "p95_ms": 42.0
+    },
+    "4096": {
+     "p50_ms": 75.0,
+     "p95_ms": 76.2
+    },
+    "8192": {
+     "p50_ms": 169.7,
+     "p95_ms": 172.8
+    }
+   }
+  },
+  "caldec-ultra-150m": {
+   "checkpoint": "kgrozdanovski/caldec-ultra-150m",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 22.8,
+     "p95_ms": 24.6
+    },
+    "1024": {
+     "p50_ms": 26.1,
+     "p95_ms": 30.8
+    },
+    "2048": {
+     "p50_ms": 27.5,
+     "p95_ms": 30.4
+    },
+    "4096": {
+     "p50_ms": 43.1,
+     "p95_ms": 44.7
+    },
+    "8192": {
+     "p50_ms": 101.7,
+     "p95_ms": 102.6
+    }
+   }
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+}

@@ -1,0 +1,18 @@
+{
+ "model": "laya",
+ "checkpoint": "development checkpoint dev-ultra-380m-short (not released)",
+ "device": "NVIDIA GeForce RTX 4080 SUPER",
+ "case_id": "015090bb068204b7",
+ "warmup": 10,
+ "samples": 40,
+ "results": {
+  "1q": {
+   "p50_ms": 17.5,
+   "p95_ms": 18.4
+  },
+  "3q": {
+   "p50_ms": 18.6,
+   "p95_ms": 19.7
+  }
+ }
+}

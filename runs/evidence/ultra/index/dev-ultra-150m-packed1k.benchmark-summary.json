@@ -1,0 +1,236 @@
+{
+ "engine": "development checkpoint dev-ultra-150m-packed1k (not released)",
+ "counts": {
+  "ok": 7873,
+  "unsupported": 2
+ },
+ "successful_request_latency_ms": {
+  "median": 22.772422060370445,
+  "p95": 29.015905922278762,
+  "mean": 23.773018032665853
+ },
+ "benchmarks": [
+  {
+   "catalog_id": 11,
+   "dataset": "ContractNLI",
+   "requests": 123,
+   "answered": 121,
+   "unsupported": 2,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 121,
+   "metric": "macro-F1",
+   "score": 0.3010947373981206,
+   "reference_same_cases": null,
+   "median_ms": 41.71327385120094,
+   "detail": {
+    "field_accuracy": 0.40058337384540593,
+    "case_exact_accuracy": 0,
+    "macro_f1": 0.3010947373981206,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 12,
+   "dataset": "ANLI",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 1000,
+   "metric": "macro-F1",
+   "score": 0.16691451321206924,
+   "reference_same_cases": null,
+   "median_ms": 21.224416559562087,
+   "detail": {
+    "field_accuracy": 0.32,
+    "case_exact_accuracy": 0.32,
+    "macro_f1": 0.16691451321206924,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 32,
+   "dataset": "MuSR",
+   "requests": 752,
+   "answered": 752,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 752,
+   "metric": "accuracy",
+   "score": 0.35638297872340424,
+   "reference_same_cases": null,
+   "median_ms": 24.57621437497437,
+   "detail": {
+    "field_accuracy": 0.35638297872340424,
+    "case_exact_accuracy": 0.35638297872340424,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 40,
+   "dataset": "iSarcasmEval",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 1000,
+   "metric": "see separate subtask tracks",
+   "score": null,
+   "reference_same_cases": null,
+   "median_ms": 22.066815523430705,
+   "tracks": {
+    "iSarcasmEval-A-Ar": {
+     "metric": "see separate subtask tracks",
+     "score": null,
+     "scored_requests": 311
+    },
+    "iSarcasmEval-A-En": {
+     "metric": "see separate subtask tracks",
+     "score": null,
+     "scored_requests": 297
+    },
+    "iSarcasmEval-B-En": {
+     "metric": "see separate subtask tracks",
+     "score": null,
+     "scored_requests": 303
+    },
+    "iSarcasmEval-C-Ar": {
+     "metric": "see separate subtask tracks",
+     "score": null,
+     "scored_requests": 45
+    },
+    "iSarcasmEval-C-En": {
+     "metric": "see separate subtask tracks",
+     "score": null,
+     "scored_requests": 44
+    }
+   },
+   "detail": {
+    "field_accuracy": 0.9236580516898608,
+    "case_exact_accuracy": 0.827,
+    "macro_f1": 0.3709687816260886,
+    "custom_metrics": {},
+    "positive_f1_by_field": {
+     "sarcastic": 0.0,
+     "sarcasm": 0.0,
+     "irony": 0.0,
+     "satire": 0.0,
+     "understatement": 0.0,
+     "overstatement": 0.0,
+     "rhetorical_question": 0.0
+    },
+    "category_macro_f1": 0.0
+   }
+  },
+  {
+   "catalog_id": 41,
+   "dataset": "VAST",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 1000,
+   "metric": "macro-F1",
+   "score": 0.25178962434988605,
+   "reference_same_cases": null,
+   "median_ms": 21.535028354264796,
+   "detail": {
+    "field_accuracy": 0.355,
+    "case_exact_accuracy": 0.355,
+    "macro_f1": 0.25178962434988605,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 42,
+   "dataset": "NLI4CT",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 1000,
+   "metric": "macro-F1",
+   "score": 0.28195514584479914,
+   "reference_same_cases": null,
+   "median_ms": 22.530485060997307,
+   "detail": {
+    "field_accuracy": 0.332,
+    "case_exact_accuracy": 0.332,
+    "macro_f1": 0.28195514584479914,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 44,
+   "dataset": "CLadder",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "scored_requests": 1000,
+   "metric": "accuracy",
+   "score": 0.531,
+   "reference_same_cases": null,
+   "median_ms": 21.523357019759715,
+   "detail": {
+    "field_accuracy": 0.531,
+    "case_exact_accuracy": 0.531,
+    "custom_metrics": {}
+   }
+  },
+  {
+   "catalog_id": 56,
+   "dataset": "PhishNChips phishing decisions",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "metric": "accuracy",
+   "score": 0.501,
+   "median_ms": 25.524260941892862,
+   "scored_requests": 1000,
+   "detail": {
+    "field_accuracy": 0.501,
+    "scored_fields": 1000,
+    "chance_on_rows": 0.5
+   }
+  },
+  {
+   "catalog_id": 62,
+   "dataset": "When2Call MCQ",
+   "requests": 1000,
+   "answered": 1000,
+   "unsupported": 0,
+   "errors": 0,
+   "abstained": 0,
+   "pending": 0,
+   "metric": "accuracy",
+   "score": 0.199,
+   "median_ms": 24.661605479195714,
+   "scored_requests": 1000,
+   "detail": {
+    "field_accuracy": 0.199,
+    "scored_fields": 1000,
+    "chance_on_rows": 0.25
+   }
+  }
+ ],
+ "note": "Native benchmark metrics on complete supported case groups. Unsupported cases excluded from accuracy but retained in coverage.",
+ "edition": "0.2.1"
+}

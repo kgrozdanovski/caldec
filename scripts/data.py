@@ -56,15 +56,22 @@ REVISIONS: Dict[str, str] = {
     "convaiinnovations/laya-typed-decisions": "1a793eb568e6718f15941d08f85432581df534e3",
     "fastino/GLiNER2.5-Decide": "7ee5da4c2415e32259bcdc0b1a7367c32ce8d6f6",
     "LocalLLaMA/typed-decisions": "f7a2487edd7a043a5441a5e9ccc7fe5ddbd9ebe8",
+    "dmis-lab/UltraBERT-150M": "545ac9d9c7aece444f014ada5a1e9818132b4d35",
+    "dmis-lab/UltraBERT-380M": "671a38c087233c0cc72c5bfceea6fffa2822f1db",
+    # The fresh-head backbone control for CalDec Ultra (ULTRA.md).
+    "answerdotai/ModernBERT-large": "45bb4654a4d5aaff24dd11d4781fa46d39bf8c13",
 }
 
 
 def split_revision(spec: str) -> tuple:
     """`repo@revision` -> (repo, revision); a bare Hub id gets its pinned revision,
-    if it has one. A local path is returned unchanged with no revision."""
+    if it has one, and otherwise the Hub's `main`. A local path is returned unchanged
+    with no revision."""
     if Path(spec).exists():
         return spec, None
     repo, _, revision = spec.partition("@")
+    if not revision and repo not in REVISIONS and repo.count("/") == 1 and not repo.startswith((".", "/", "~")):
+        revision = "main"
     return repo, revision or REVISIONS.get(repo)
 
 
@@ -75,11 +82,39 @@ def resolve_laya(spec: str) -> str:
     given) commit and the local snapshot directory is what gets loaded."""
     repo, revision = split_revision(spec)
     if revision is None:
-        return repo
-    from huggingface_hub import snapshot_download
+        path = repo
+    else:
+        from huggingface_hub import snapshot_download
 
-    return snapshot_download(repo, revision=revision, allow_patterns=[
-        "rl_agent_config.json", "model.safetensors", "tokenizer/*", "encoder/*"])
+        path = snapshot_download(repo, revision=revision, allow_patterns=[
+            "rl_agent_config.json", "model.safetensors", "tokenizer/*", "encoder/*"])
+    # A CalDec Ultra checkpoint's encoder is UltraBERT, which this transformers knows
+    # only as remote code: register it before laya.load builds the encoder.
+    import ultra
+
+    if ultra.is_ultra_checkpoint(Path(path)):
+        ultra.register(Path(path) / "encoder")
+    return path
+
+
+def load_agent(spec: str, device: str | None = None):
+    """`laya.load` on a resolved checkpoint, with an UltraBERT encoder switched to the
+    exact block-sparse local attention in scripts/fastattn.py (set
+    CALDEC_DENSE_ATTENTION=1 to keep the encoder's own dense-mask path). A checkpoint
+    trained with `train.py --packed` comes back as a `packed.PackedAgent`."""
+    import os
+
+    import fastattn
+    import laya
+
+    agent = laya.load(resolve_laya(spec), device=device) if device else laya.load(resolve_laya(spec))
+    if os.environ.get("CALDEC_DENSE_ATTENTION") != "1":
+        fastattn.enable(agent.model.encoder)
+    if agent.cfg.get("packed"):
+        import packed
+
+        return packed.PackedAgent(agent)
+    return agent
 
 
 def decode(row: Dict[str, Any]) -> Dict[str, Any]:

@@ -10,6 +10,8 @@ __pycache__/
 data/**/.run.lock
 # The working dataset copy that new builds extend (README, 'Generate your own data')
 data-next/
+# A full relabelled dataset directory (scripts/relabel.py export); its test split is data-relabelled/test.jsonl
+data-uslabels/
 data/**/*.log
 
 # Credentials and training artefacts that must never be committed
@@ -25,3 +27,7 @@ runs/jev-*/responses/
 
 .idea/
 dist/
+
+# Generated probe and mix datasets (scripts/needle.py, scripts/general_data.py)
+data-needle/
+data-general/

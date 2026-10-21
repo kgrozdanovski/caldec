@@ -24,6 +24,12 @@ identifiers:
   - type: url
     value: "https://huggingface.co/kgrozdanovski/caldec-v1-gliner2.5-decide"
     description: "CalDec GLiNER weights on Hugging Face"
+  - type: url
+    value: "https://huggingface.co/kgrozdanovski/caldec-ultra-380m"
+    description: "CalDec Ultra 380M weights on Hugging Face"
+  - type: url
+    value: "https://huggingface.co/kgrozdanovski/caldec-ultra-150m"
+    description: "CalDec Ultra 150M weights on Hugging Face"
 license: Apache-2.0
 version: "1.0"
 date-released: 2026-10-01
@@ -33,3 +39,4 @@ keywords:
   - knowledge distillation
   - AI assistants
   - prompt injection
+  - long context

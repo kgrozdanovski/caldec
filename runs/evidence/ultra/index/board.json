@@ -1,0 +1,332 @@
+{
+ "source": "multimodalart/jev-decision-index data/index.json",
+ "generated_utc": "2026-10-16T16:39:08Z",
+ "models": {
+  "GLiNER2.5-Decide": {
+   "11": {
+    "score": 0.2177,
+    "jev": 0.7076,
+    "metric": "macro-F1",
+    "requests": 123,
+    "answered": 123,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": null
+   },
+   "12": {
+    "score": 0.3091,
+    "jev": 0.7427,
+    "metric": "macro-F1",
+    "requests": 3200,
+    "answered": 3200,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 22.2
+   },
+   "32": {
+    "score": 0.4521,
+    "jev": 0.7261,
+    "metric": "accuracy",
+    "requests": 752,
+    "answered": 752,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": null
+   },
+   "40": {
+    "score": 0.3235,
+    "jev": 0.5327,
+    "metric": "Sarcasm F1 \u00b7 track A, English",
+    "requests": 4600,
+    "answered": 4600,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 22.5,
+    "tracks": [
+     {
+      "track": "A \u00b7 Arabic",
+      "score": 0.0847,
+      "headline": false
+     },
+     {
+      "track": "A \u00b7 English",
+      "score": 0.3235,
+      "headline": true
+     },
+     {
+      "track": "C \u00b7 Arabic pairs",
+      "score": 0.5,
+      "headline": false
+     },
+     {
+      "track": "C \u00b7 English pairs",
+      "score": 0.535,
+      "headline": false
+     }
+    ],
+    "jev_note": "Jev on all track cases"
+   },
+   "41": {
+    "score": 0.3527,
+    "jev": 0.7365,
+    "metric": "macro-F1",
+    "requests": 3006,
+    "answered": 3006,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 22.3
+   },
+   "42": {
+    "score": 0.4801,
+    "jev": 0.8512,
+    "metric": "macro-F1",
+    "requests": 5500,
+    "answered": 5500,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 23.2
+   },
+   "44": {
+    "score": 0.5012,
+    "jev": 0.8858,
+    "metric": "accuracy",
+    "requests": 5000,
+    "answered": 5000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 22.3
+   },
+   "56": {
+    "score": 0.5,
+    "metric": "accuracy",
+    "requests": 2000,
+    "answered": 2000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 25.2,
+    "edition_added": "v0.2",
+    "jev": 0.8375
+   },
+   "62": {
+    "score": 0.3341,
+    "metric": "accuracy",
+    "requests": 3652,
+    "answered": 3652,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 27.5,
+    "edition_added": "v0.2",
+    "jev": 0.8165
+   }
+  },
+  "Laya": {
+   "11": {
+    "score": 0.2901,
+    "jev": null,
+    "metric": "macro-F1",
+    "requests": 123,
+    "answered": 122,
+    "unsupported": 1,
+    "errors": 0,
+    "median_ms": null
+   },
+   "12": {
+    "score": 0.4866,
+    "jev": 0.7427,
+    "metric": "macro-F1",
+    "requests": 3200,
+    "answered": 3200,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 4.6
+   },
+   "32": {
+    "score": 0.4322,
+    "jev": 0.7261,
+    "metric": "accuracy",
+    "requests": 752,
+    "answered": 752,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": null
+   },
+   "40": {
+    "score": 0.149,
+    "jev": 0.5327,
+    "metric": "Sarcasm F1 \u00b7 track A, English",
+    "requests": 4600,
+    "answered": 4600,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 4.2,
+    "tracks": [
+     {
+      "track": "A \u00b7 Arabic",
+      "score": 0.0184,
+      "headline": false
+     },
+     {
+      "track": "A \u00b7 English",
+      "score": 0.149,
+      "headline": true
+     },
+     {
+      "track": "C \u00b7 Arabic pairs",
+      "score": 0.535,
+      "headline": false
+     },
+     {
+      "track": "C \u00b7 English pairs",
+      "score": 0.41,
+      "headline": false
+     }
+    ],
+    "jev_note": "Jev on all track cases"
+   },
+   "41": {
+    "score": 0.4053,
+    "jev": 0.7365,
+    "metric": "macro-F1",
+    "requests": 3006,
+    "answered": 3006,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 4.8
+   },
+   "42": {
+    "score": 0.4772,
+    "jev": 0.8512,
+    "metric": "macro-F1",
+    "requests": 5500,
+    "answered": 5500,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 6.5
+   },
+   "44": {
+    "score": 0.5288,
+    "jev": 0.8858,
+    "metric": "accuracy",
+    "requests": 5000,
+    "answered": 5000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 4.5
+   },
+   "56": {
+    "score": 0.5015,
+    "metric": "accuracy",
+    "requests": 2000,
+    "answered": 2000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 26.4,
+    "edition_added": "v0.2",
+    "jev": 0.8375
+   },
+   "62": {
+    "score": 0.1194,
+    "metric": "accuracy",
+    "requests": 3652,
+    "answered": 3652,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 8.9,
+    "edition_added": "v0.2",
+    "jev": 0.8165
+   }
+  },
+  "Jev 1.13": {
+   "11": {
+    "score": 0.7169,
+    "jev": null,
+    "metric": "macro-F1",
+    "requests": 123,
+    "answered": 123,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 751.7
+   },
+   "12": {
+    "score": 0.7479,
+    "jev": null,
+    "metric": "macro-F1",
+    "requests": 3200,
+    "answered": 3200,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 948.9
+   },
+   "32": {
+    "score": 0.6609,
+    "jev": null,
+    "metric": "accuracy",
+    "requests": 752,
+    "answered": 752,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 831.3
+   },
+   "40": {
+    "score": 0.5051,
+    "jev": null,
+    "metric": "Sarcasm F1 \u00b7 track A, English",
+    "requests": 4600,
+    "answered": 4600,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 970.9
+   },
+   "41": {
+    "score": 0.6463,
+    "jev": null,
+    "metric": "macro-F1",
+    "requests": 3006,
+    "answered": 3006,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 894.1
+   },
+   "42": {
+    "score": 0.8406,
+    "jev": null,
+    "metric": "macro-F1",
+    "requests": 5500,
+    "answered": 5500,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 936.7
+   },
+   "44": {
+    "score": 0.7264,
+    "jev": null,
+    "metric": "accuracy",
+    "requests": 5000,
+    "answered": 5000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 944.9
+   },
+   "56": {
+    "score": 0.6255,
+    "jev": null,
+    "metric": "accuracy",
+    "requests": 2000,
+    "answered": 2000,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 1372.4
+   },
+   "62": {
+    "score": 0.8097,
+    "jev": null,
+    "metric": "accuracy",
+    "requests": 3652,
+    "answered": 3652,
+    "unsupported": 0,
+    "errors": 0,
+    "median_ms": 1047.2
+   }
+  }
+ }
+}

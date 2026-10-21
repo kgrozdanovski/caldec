@@ -43,10 +43,17 @@ Config fields (scripts/generate.example.json):
   site to a new brief. New briefs move the scenarios away from the existing data:
   A custom brief file can vary scenario domains without changing the site schema.
 - `max_jaccard`: the near-duplicate threshold. `budget_usd`: the hard spending cap.
+- Optional, for long-state builds (defaults keep the original recipe): a model's
+  `generate_batches` overrides `batches_per_generator_per_site` for that generator, so
+  generators can take unequal shares; `state_length_note` replaces the request's
+  "below 1800 characters" line; `min_state_chars` and `max_state_chars` (default 0 and
+  2200) bound the serialized state; `generation_max_tokens` (3600), `label_max_tokens`
+  (6000), `generation_reasoning` (none), `label_reasoning` ("medium") and
+  `request_timeout_s` (240) set the calls.
 
 What it enforces, and what it leaves to you:
-- **Equal requested shares per generator.** Every configured generator is asked for the
-  same number of batches per site. Rejections and dropped cases can leave the kept
+- **Equal requested shares per generator** unless a model sets `generate_batches`. Every
+  configured generator is otherwise asked for the same number of batches per site. Rejections and dropped cases can leave the kept
   shares unequal; `freeze.json` records the kept count per generator, so check it.
   Using several generator families is your choice of config, not a rule: one generator
   writes in one style, and a model trained on it can learn that style along with the task.
@@ -128,6 +135,12 @@ def reference_states(data: Path) -> dict:
     return references
 
 
+def batches_for(protocol: dict, model_id: str) -> int:
+    """Batches per site for one generator: its own `generate_batches`, else the build's."""
+    model = next(m for m in protocol["models"] if m["id"] == model_id)
+    return model.get("generate_batches", protocol["batches_per_generator_per_site"])
+
+
 def build_dir(build: str) -> Path:
     return ROOT / "data" / "provenance" / build
 
@@ -173,6 +186,7 @@ def client_for(protocol: dict) -> llm.Client:
             connections[model["id"]] = {"endpoint": info["endpoint"],
                                          "api_key_env": info["api_key_env"], "openrouter": False}
     return llm.Client(out=build_dir(protocol["build"]), cap_usd=protocol["budget_usd"],
+                      timeout=protocol.get("request_timeout_s", 240),
                      models=llm.model_table([m["id"] for m in models], [m["price_per_million"] for m in models],
                                            {m["id"] for m in models if m.get("needs_reasoning")},
                                            {m["id"]: m.get("extra_output_tokens", 0) for m in models},
@@ -287,7 +301,7 @@ def initialise(config_path: Path) -> None:
                                  for name in fold.SPLITS})
     llm.write_json(out / "protocol.json", protocol)
     print(f"initialised build {build!r} -> {out}; {len(sites)} site(s), {len(generators)} generator(s), "
-          f"{config['batches_per_generator_per_site'] * config['cases_per_batch'] * len(generators) * len(sites)} cases planned")
+          f"{sum(m.get('generate_batches', config['batches_per_generator_per_site']) for m in generators) * config['cases_per_batch'] * len(sites)} cases planned")
 
 
 def generate(client, protocol, pilot=False) -> int:
@@ -299,7 +313,7 @@ def generate(client, protocol, pilot=False) -> int:
         jobs = [(g, sites[(3 * i) % len(sites)], 2, 0) for i, g in enumerate(generators[:4])]
     else:
         jobs = [(g, s, protocol["cases_per_batch"], b) for s in sites for g in generators
-                for b in range(protocol["batches_per_generator_per_site"])]
+                for b in range(batches_for(protocol, g))]
     prefix = "pilot" if pilot else protocol["build"]
     tagged = [(g, s, n, f"{prefix}-{s['site']}-{generators.index(g)}-{b}") for g, s, n, b in jobs]
 
@@ -313,7 +327,8 @@ def generate(client, protocol, pilot=False) -> int:
                 raise ValueError(f"Wrong state count: {tag}")
             return states
         try:
-            states = llm.request_validated(client, tag, g, system, user, 3600, .9, validate)
+            states = llm.request_validated(client, tag, g, system, user, protocol.get("generation_max_tokens", 3600), .9,
+                                           validate, reasoning=protocol.get("generation_reasoning"))
         except (RuntimeError, ValueError) as exc:
             print(f"{tag}: skipped ({type(exc).__name__})", flush=True)
             return None
@@ -334,7 +349,8 @@ def generate(client, protocol, pilot=False) -> int:
     for row in rows:
         reason = None
         findings = check_data.scan_row(row["state"])
-        if not llm.valid_state(row["state"], references[row["site"]]):
+        if not llm.valid_state(row["state"], references[row["site"]], protocol.get("max_state_chars", 2200),
+                               protocol.get("min_state_chars", 0)):
             reason = "state_schema_or_length"
         elif findings:
             reason = "scrub:" + ",".join(sorted({kind for kind, _ in findings}))
@@ -394,7 +410,9 @@ def label(client, protocol) -> int:
         system, user = llm.label_request(protocol, batch)
         try:
             labels = llm.request_validated(client, f"annotate-{tag}-{labellers.index(model)}", model, system, user,
-                                          6000, .2, lambda content: llm.parse_labels(content, batch), reasoning="medium")
+                                          protocol.get("label_max_tokens", 6000), .2,
+                                          lambda content: llm.parse_labels(content, batch),
+                                          reasoning=protocol.get("label_reasoning", "medium"))
         except (RuntimeError, ValueError) as exc:
             print(f"annotate-{tag}: {model} skipped ({type(exc).__name__})", flush=True)
             return None

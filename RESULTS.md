@@ -2,6 +2,8 @@
 
 All assistant-test figures use the same released test split. The CalDec rows use the release weight files in `checkpoints/v1-laya/final` and `checkpoints/v1-gliner/final`; the base rows use pinned upstream checkpoints. Jev was queried through OpenRouter. The reports are summarized in `runs/numbers.json`. A fresh clone can run `python3 scripts/check_evidence.py` to recalculate local-model scores from committed prediction vectors. Jev's aggregate report is committed without its per-decision outputs.
 
+This page covers CalDec Laya and CalDec GLiNER. CalDec Ultra, scored under the same contract and also on long states, the relabelled test and a Decision Index panel, is in [ULTRA.md](ULTRA.md); its evidence is verified by `python3 scripts/check_evidence_ultra.py`.
+
 ## Scoring contract
 
 A case may contain several typed questions. The test split contains **1,647 cases and 3,452 decisions**; **3,372** decisions have a unique highest-probability target. Hard accuracy and expected calibration error (ECE) use those untied decisions. Soft accuracy, Brier score, soft negative log-likelihood (NLL), and score mean absolute error use every decision. `noul` options are ordered `false, true`. Accuracy means agreement with the synthetic target's argmax, not independent correctness. The test split was used during development.

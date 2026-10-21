@@ -1,0 +1,34 @@
+{
+ "case_id": "015090bb068204b7",
+ "site": "tool.risk",
+ "questions": 3,
+ "models": {
+  "dev-laya-packed1k": {
+   "checkpoint": "development checkpoint dev-laya-packed1k (not released)",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 21.0,
+     "p95_ms": 24.6
+    },
+    "1024": {
+     "p50_ms": 23.7,
+     "p95_ms": 27.0
+    },
+    "2048": {
+     "p50_ms": 42.8,
+     "p95_ms": 45.1
+    },
+    "4096": {
+     "p50_ms": 93.8,
+     "p95_ms": 97.6
+    },
+    "8192": {
+     "p50_ms": 260.8,
+     "p95_ms": 263.6
+    }
+   }
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+}

@@ -47,7 +47,7 @@ import json
 import sys
 import time
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import numpy as np
 
@@ -294,7 +294,7 @@ def apply_patches(soft: bool) -> None:
 # Evaluation — metrics, tie policy and the paired test are evaluate.py's
 # --------------------------------------------------------------------------- #
 
-def evaluate(model_path: str, split: str, device: str) -> Dict:
+def evaluate(model_path: str, split: str, device: str, max_len: Optional[int] = None) -> Dict:
     model = from_pretrained(model_path)
     if device == "cuda":
         model.cuda()
@@ -306,7 +306,7 @@ def evaluate(model_path: str, split: str, device: str) -> Dict:
         if not tasks:
             continue
         answers = model.classify_text(render(row["state"]), schema_for(tasks),
-                                      include_confidence=True, format_results=False)
+                                      include_confidence=True, format_results=False, max_len=max_len)
         for task in tasks:
             by_label = {label: float(score) for label, score in (answers.get(task["task"]) or [])}
             raw = np.array([by_label.get(label, 0.0) for label in task["labels"]], dtype=float)
@@ -352,12 +352,12 @@ def cmd_compare(args) -> None:
 
 def cmd_zeroshot(args) -> None:
     apply_patches(soft=False)
-    report(evaluate(args.model, args.split, args.device), args.out, args.predictions)
+    report(evaluate(args.model, args.split, args.device, args.max_len), args.out, args.predictions)
 
 
 def cmd_eval(args) -> None:
     apply_patches(soft=False)
-    report(evaluate(args.model, args.split, args.device), args.out, args.predictions)
+    report(evaluate(args.model, args.split, args.device, args.max_len), args.out, args.predictions)
 
 
 def cmd_train(args) -> None:
@@ -459,6 +459,8 @@ def main() -> int:
         p.add_argument("--predictions", help="save per-decision predictions for --compare")
         p.add_argument("--data", default=None, help="dataset directory (default: data/)")
         p.add_argument("--build", default=None, help="score one build's rows only (data.build_of)")
+        p.add_argument("--max-len", type=int, default=None,
+                       help="cut each input to this many tokens (default: none; 8K states run out of memory on 16 GB)")
 
     p = sub.add_parser("compare")
     p.set_defaults(fn=cmd_compare)

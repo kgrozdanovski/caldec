@@ -1,0 +1,60 @@
+{
+ "case_id": "015090bb068204b7",
+ "site": "tool.risk",
+ "questions": 3,
+ "models": {
+  "dev-ultra-380m-packed1k": {
+   "checkpoint": "development checkpoint dev-ultra-380m-packed1k (not released)",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 23.4,
+     "p95_ms": 32.8
+    },
+    "1024": {
+     "p50_ms": 23.3,
+     "p95_ms": 29.1
+    },
+    "2048": {
+     "p50_ms": 38.7,
+     "p95_ms": 40.8
+    },
+    "4096": {
+     "p50_ms": 75.0,
+     "p95_ms": 76.3
+    },
+    "8192": {
+     "p50_ms": 168.3,
+     "p95_ms": 171.7
+    }
+   }
+  },
+  "dev-ultra-150m-packed1k": {
+   "checkpoint": "development checkpoint dev-ultra-150m-packed1k (not released)",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 21.1,
+     "p95_ms": 23.7
+    },
+    "1024": {
+     "p50_ms": 24.7,
+     "p95_ms": 27.9
+    },
+    "2048": {
+     "p50_ms": 25.9,
+     "p95_ms": 28.5
+    },
+    "4096": {
+     "p50_ms": 42.5,
+     "p95_ms": 44.4
+    },
+    "8192": {
+     "p50_ms": 101.1,
+     "p95_ms": 104.3
+    }
+   }
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+}

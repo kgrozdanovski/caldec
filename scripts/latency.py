@@ -19,7 +19,7 @@ os.environ.setdefault("USE_TF", "0")
 
 import torch  # noqa: E402
 
-from data import load_split  # noqa: E402
+from data import load_split, resolve_laya, load_agent  # noqa: E402
 
 
 def main() -> int:
@@ -41,7 +41,8 @@ def main() -> int:
     if args.model == "laya":
         import laya
 
-        agent = laya.load(args.checkpoint, device=args.device)
+        # resolve_laya also registers UltraBERT for a CalDec Ultra checkpoint.
+        agent = load_agent(args.checkpoint, device=args.device)
 
         def call(count):
             return agent.system_one(row["state"], dict(list(row["questions"].items())[:count]))

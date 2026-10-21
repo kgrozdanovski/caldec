@@ -1,0 +1,112 @@
+{
+ "case_id": "015090bb068204b7",
+ "site": "tool.risk",
+ "questions": 3,
+ "models": {
+  "caldec-laya": {
+   "checkpoint": "kgrozdanovski/caldec-v1-laya",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 33.5,
+     "p95_ms": 34.2
+    },
+    "1024": {
+     "p50_ms": 56.9,
+     "p95_ms": 58.9
+    },
+    "2048": {
+     "p50_ms": 125.3,
+     "p95_ms": 127.2
+    },
+    "4096": {
+     "p50_ms": 337.7,
+     "p95_ms": 347.0
+    },
+    "8192": {
+     "p50_ms": 939.7,
+     "p95_ms": 952.2
+    }
+   }
+  },
+  "dev-ultra-150m-short": {
+   "checkpoint": "development checkpoint dev-ultra-150m-short (not released)",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 23.4,
+     "p95_ms": 28.4
+    },
+    "1024": {
+     "p50_ms": 32.5,
+     "p95_ms": 34.0
+    },
+    "2048": {
+     "p50_ms": 70.3,
+     "p95_ms": 74.2
+    },
+    "4096": {
+     "p50_ms": 159.9,
+     "p95_ms": 167.2
+    },
+    "8192": {
+     "p50_ms": 415.2,
+     "p95_ms": 442.1
+    }
+   }
+  },
+  "dev-ultra-380m-short": {
+   "checkpoint": "development checkpoint dev-ultra-380m-short (not released)",
+   "packed": false,
+   "by_length": {
+    "512": {
+     "p50_ms": 34.1,
+     "p95_ms": 35.2
+    },
+    "1024": {
+     "p50_ms": 59.1,
+     "p95_ms": 59.6
+    },
+    "2048": {
+     "p50_ms": 117.4,
+     "p95_ms": 120.7
+    },
+    "4096": {
+     "p50_ms": 277.5,
+     "p95_ms": 288.7
+    },
+    "8192": {
+     "p50_ms": 651.6,
+     "p95_ms": 669.9
+    }
+   }
+  },
+  "dev-ultra-150m-packed512": {
+   "checkpoint": "development checkpoint dev-ultra-150m-packed512 (not released)",
+   "packed": true,
+   "by_length": {
+    "512": {
+     "p50_ms": 25.5,
+     "p95_ms": 34.2
+    },
+    "1024": {
+     "p50_ms": 27.6,
+     "p95_ms": 38.7
+    },
+    "2048": {
+     "p50_ms": 27.7,
+     "p95_ms": 31.3
+    },
+    "4096": {
+     "p50_ms": 44.8,
+     "p95_ms": 51.6
+    },
+    "8192": {
+     "p50_ms": 101.3,
+     "p95_ms": 105.8
+    }
+   }
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+}

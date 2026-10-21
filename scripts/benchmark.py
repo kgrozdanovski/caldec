@@ -45,7 +45,7 @@ os.environ.setdefault("USE_TF", "0")
 import numpy as np                                                    # noqa: E402
 import torch                                                          # noqa: E402
 
-from data import REVISIONS, build_items, load_split, resolve_laya      # noqa: E402
+from data import REVISIONS, build_items, load_split, resolve_laya, load_agent      # noqa: E402
 from evaluate import baselines, data_fingerprint, metrics, score, serialise  # noqa: E402
 
 PUBLIC_REPO = "LocalLLaMA/typed-decisions"
@@ -144,6 +144,8 @@ def main(argv: List[str] | None = None) -> int:
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--skip-public", action="store_true")
     parser.add_argument("--skip-internal", action="store_true")
+    parser.add_argument("--max-len", type=int, default=0,
+                        help="serve every model at this sequence length instead of its own (0)")
     args = parser.parse_args(argv)
 
     if not args.model:
@@ -192,7 +194,9 @@ def main(argv: List[str] | None = None) -> int:
         # A model that does not load stops the run: a report silently missing a row
         # reads as a finished comparison.
         try:
-            agent = laya.load(resolve_laya(path), device=args.device)
+            agent = load_agent(path, device=args.device)
+            if args.max_len:
+                agent.cfg["max_len"] = args.max_len
         except Exception as exc:                                # noqa: BLE001
             raise SystemExit(f"\n  could not load {name} from {path}: {exc}\n") from exc
         entry: Dict[str, Any] = {"path": path, "predictions": {}}

@@ -16,5 +16,6 @@ jobs:
       - run: python scripts/check_data.py
       - run: python scripts/check_numbers.py
       - run: python scripts/check_evidence.py
+      - run: python scripts/check_evidence_ultra.py
       - run: python scripts/test_generate.py
       - run: python -m compileall -q scripts

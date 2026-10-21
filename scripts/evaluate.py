@@ -41,7 +41,7 @@ os.environ.setdefault("USE_TF", "0")
 
 import numpy as np                                                     # noqa: E402
 
-from data import load_split, resolve_laya                              # noqa: E402
+from data import load_split, resolve_laya, load_agent                              # noqa: E402
 
 TIE_TOLERANCE = 1e-9
 QTYPE_INDEX = {"choice": 0, "score": 1, "noul": 2}
@@ -389,6 +389,8 @@ def main(argv: List[str] | None = None) -> int:
                         help="the split thresholds are fitted on; never the one being reported")
     parser.add_argument("--device", default=None, help="default: cuda when available, else cpu")
     parser.add_argument("--predictions", help="where to save per-decision predictions")
+    parser.add_argument("--max-len", type=int, default=0,
+                        help="serve at this sequence length instead of the checkpoint's own (0)")
     args = parser.parse_args(argv)
 
     if args.compare:
@@ -400,7 +402,9 @@ def main(argv: List[str] | None = None) -> int:
         parser.error("--checkpoint is required unless --compare is given")
 
     import laya
-    agent = laya.load(resolve_laya(args.checkpoint), device=args.device)
+    agent = load_agent(args.checkpoint, device=args.device)
+    if args.max_len:
+        agent.cfg["max_len"] = args.max_len
 
     rows = load_split(Path(args.data), args.split, args.build)
     if not rows:
