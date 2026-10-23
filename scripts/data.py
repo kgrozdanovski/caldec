@@ -60,6 +60,9 @@ REVISIONS: Dict[str, str] = {
     "dmis-lab/UltraBERT-380M": "671a38c087233c0cc72c5bfceea6fffa2822f1db",
     # The fresh-head backbone control for CalDec Ultra (ULTRA.md).
     "answerdotai/ModernBERT-large": "45bb4654a4d5aaff24dd11d4781fa46d39bf8c13",
+    # The released CalDec Ultra checkpoints, at the commits whose files match SHA256SUMS.
+    "kgrozdanovski/caldec-ultra-380m": "95c7cc40ab7602dbf0d105284137f5efe5e74a19",
+    "kgrozdanovski/caldec-ultra-150m": "fcad869cd222f235f9366804c721f319fcfd842b",
 }
 
 
