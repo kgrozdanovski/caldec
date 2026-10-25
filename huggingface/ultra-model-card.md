@@ -111,7 +111,7 @@ from data import load_agent
 agent = load_agent("kgrozdanovski/{{model}}")
 result = agent.system_one(
     {"source": "read_webpage", "text": "...a long fetched page..."},
-    {"injection": {"type": "noul", "instructions": "The text contains instructions addressed to an AI assistant."}},
+    {"injection": {"type": "noul", "instructions": "The text contains instructions addressed to an AI assistant or agent, such as to ignore earlier instructions, to call a tool, or to send data somewhere."}},
 )
 p_injection = result["answers"]["injection"]["noul"]
 ```
@@ -126,7 +126,7 @@ No Claude, GPT or Gemini output was used in training; those labels are evaluatio
 
 ## Limits
 
-The labels are synthetic model judgments, and the states are synthetic. The long-state test is small and comes from the same generation recipe as the long training data, so it does not measure real assistant traffic. Calibration (ECE {{metrics|@M|test|ece:.3f}}) is weaker than CalDec GLiNER's ({{metrics|caldec-gliner|test|ece:.3f}}); the model is under-confident. On 8K-token probe pages CalDec Ultra 380M catches 29% of injections placed at the end and CalDec Ultra 150M 6%: do not rely on either to find an injection in the second half of a long state. Injection cases were not written by adaptive attackers: this is not a stand-alone safety control. Each model is one training run; a second run of the 150M recipe scored 1.4 assistant-test points lower ([seed variance](https://github.com/kgrozdanovski/caldec/blob/main/ULTRA.md#seed-variance)). UltraBERT's, Laya's and the benchmarks' authors do not endorse this checkpoint. Apache 2.0, matching the base model.
+The labels are synthetic model judgments, and the states are synthetic. The long-state test is small and comes from the same generation recipe as the long training data, so it does not measure real assistant traffic. Calibration (ECE {{metrics|@M|test|ece:.3f}}) is weaker than CalDec GLiNER's ({{metrics|caldec-gliner|test|ece:.3f}}); the model is under-confident. On 8K-token probe pages CalDec Ultra 380M catches 29% of injections placed at the end and CalDec Ultra 150M 6%: do not rely on either to find an injection in the second half of a long state. Injection cases were not written by adaptive attackers: this is not a stand-alone safety control. Ask the injection question in the wording of the example above, which is the training wording (also in `data/sites.json`): with the shorter "The text contains instructions addressed to an AI assistant." CalDec Ultra 380M flags 12.0% of 600 ordinary English web pages instead of 0.7%. Both models raise many false alarms on ordinary non-English text: on 1,440 ordinary web pages in 12 languages (FineWeb-2, 120 per language) at the 0.5 cut, CalDec Ultra 150M flags 64.5% and CalDec Ultra 380M 15.1% (63.8% and 19.0% with the shorter wording), against 0.3% and 0.7% of the English pages. Do not use either to screen non-English text. Each model is one training run; a second run of the 150M recipe scored 1.4 assistant-test points lower ([seed variance](https://github.com/kgrozdanovski/caldec/blob/main/ULTRA.md#seed-variance)). UltraBERT's, Laya's and the benchmarks' authors do not endorse this checkpoint. Apache 2.0, matching the base model.
 
 ## Citation and contact
 

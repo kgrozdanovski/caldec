@@ -34,7 +34,7 @@ from data import load_agent
 agent = load_agent("kgrozdanovski/caldec-ultra-380m")
 state = {"source": "read_webpage", "text": "...an 8K-token page..."}
 questions = {
-    "injection": {"type": "noul", "instructions": "The text contains instructions addressed to an AI assistant."},
+    "injection": {"type": "noul", "instructions": "The text contains instructions addressed to an AI assistant or agent, such as to ignore earlier instructions, to call a tool, or to send data somewhere."},
     "tier": {"type": "choice", "instructions": "How much reasoning does the next turn need?",
              "criteria": {"fast": "a direct reply", "deep": "multi-step work or tools"}},
 }
@@ -248,4 +248,5 @@ UltraBERT ships as remote code before transformers 5.20. The pinned 5.17 environ
 - **Calibration.** CalDec Ultra 380M's ECE is 0.086 against CalDec GLiNER's 0.039; it is under-confident.
 - **Seeds.** Each released model is one training run. A second 150M run scored 1.4 assistant-test points lower (p = 0.019); probe and outside-benchmark scores move more than that ([seed variance](#seed-variance)).
 - **Injections deep in a long page.** On 8K probe pages the 380M catches 29% of injections placed at the end and the 150M 6%. Do not rely on either to find an injection in the second half of an 8K state.
+- **Question wording and non-English pages.** Ask the injection question in the training wording, as in the [example](#use) and `data/sites.json`. With the shorter "The text contains instructions addressed to an AI assistant." CalDec Ultra 380M flags 12.0% of 600 ordinary English web pages instead of 0.7%. On 1,440 ordinary web pages in 12 languages (FineWeb-2, 120 per language) at the 0.5 cut, CalDec Ultra 150M flags 64.5% as injections and CalDec Ultra 380M 15.1% (63.8% and 19.0% with the shorter wording), against 0.3% and 0.7% of the English pages. Do not use either to screen non-English text.
 - **The assistant test informed development** of every CalDec model; the relabelled test checks the labels on those states, not new states.
