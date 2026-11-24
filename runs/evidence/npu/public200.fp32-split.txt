@@ -1,0 +1,9 @@
+cases 200, untied questions 981, runner passes at 384: mean 2.00
+one   max_len  384: accuracy 0.3262
+one   max_len  512: accuracy 0.6483
+one   max_len  640: accuracy 0.7503
+one   max_len 1024: accuracy 0.7686
+split max_len  384: accuracy 0.6932
+split max_len  512: accuracy 0.7227
+split max_len  640: accuracy 0.7452
+split max_len 1024: accuracy 0.7452
