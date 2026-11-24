@@ -43,6 +43,8 @@ print(agent.system_one(state, questions)["answers"])
 
 `load_agent` downloads the checkpoint, registers UltraBERT's modeling code from the checkpoint's own `encoder/` directory (pinned to the UltraBERT revision it was trained from; this executes that code, as `trust_remote_code` would), switches its local layers to the exact block-sparse path in `scripts/fastattn.py`, and returns a `packed.PackedAgent`. `system_one` returns the same answer format as `laya.Agent.system_one`: per question a choice, score or probability, the option distribution, a confidence and an act probability. States longer than 8,192 tokens are cut at the end. Set `CALDEC_DENSE_ATTENTION=1` to use UltraBERT's own dense-mask attention instead; the outputs are identical.
 
+**On an edge NPU.** CalDec Ultra 150M is also converted for the Rockchip RK3566 NPU (fp16, 311 ms per question on a 4 GB board); see [NPU.md](NPU.md).
+
 ## Results
 
 Accuracy everywhere is agreement with model-written target distributions on untied decisions, scored through the served path; it is not independent correctness. Every number below recalculates from the committed prediction vectors with `python3 scripts/check_evidence_ultra.py`.

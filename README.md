@@ -6,7 +6,7 @@
 
 A public dataset, reproducible data and training recipes, four checkpoints, and an evaluation harness.
 
-[Dataset](DATASET.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Jev reference](JEV.md) · [GLiNER transfer](TRANSFER.md) · [CalDec Ultra: long context](ULTRA.md)
+[Dataset](DATASET.md) · [Method](METHOD.md) · [Results](RESULTS.md) · [Jev reference](JEV.md) · [GLiNER transfer](TRANSFER.md) · [CalDec Ultra: long context](ULTRA.md) · [CalDec Ultra on a Rockchip NPU](NPU.md)
 
 </div>
 
@@ -119,6 +119,8 @@ answer = agent.system_one(state, questions)                  # same format as la
 ```
 
 [ULTRA.md](ULTRA.md#use) has a complete example.
+
+CalDec Ultra 150M also runs on the NPU of a Rockchip RK3566 edge board, in fp16 at 311 ms per question: [NPU.md](NPU.md) has the converted model set, the runner and how it was done.
 
 ## Reproduce training and evaluation
 
