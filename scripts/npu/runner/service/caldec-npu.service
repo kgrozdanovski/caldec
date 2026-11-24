@@ -1,0 +1,41 @@
+[Unit]
+Description=CalDec decisions on the NPU (packed model set, /opt/caldec-npu)
+Requires=caldec-npu.socket
+After=caldec-npu.socket
+
+[Service]
+Type=simple
+TimeoutStartSec=180
+User=caldec
+Group=caldec
+SupplementaryGroups=render video
+Environment=CALDEC_NPU_DIR=/opt/caldec-npu CALDEC_NPU_IDLE=600
+# the NPU driver is loaded 45 s after boot (panther-npu.timer); wait for it instead of failing
+ExecStartPre=/bin/sh -c 'for i in $(seq 120); do grep -q "^rknpu " /proc/modules && exit 0; sleep 1; done; echo "rknpu not loaded"; exit 1'
+# CPU at full clock while the service runs: -100 ms per case (the runtime's CPU ops and the host part); restored
+# when it exits (idle exit after CALDEC_NPU_IDLE s). '+' = runs as root despite User=.
+ExecStartPre=+/bin/sh -c 'for p in /sys/devices/system/cpu/cpufreq/policy*; do echo performance > $p/scaling_governor; done'
+ExecStart=/opt/caldec-npu/venv/bin/python /opt/caldec-npu/caldec_npu_service.py
+ExecStopPost=+/bin/sh -c 'for p in /sys/devices/system/cpu/cpufreq/policy*; do echo schedutil > $p/scaling_governor; done'
+Restart=on-failure
+RestartSec=10
+# hardening: no network, read-only system, only the NPU render node
+PrivateNetwork=yes
+RestrictAddressFamilies=AF_UNIX
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+RestrictRealtime=yes
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+DevicePolicy=closed
+DeviceAllow=char-drm rw
+
+[Install]
+Also=caldec-npu.socket
