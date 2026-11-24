@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""Client for the CalDec NPU service: JSON request lines on stdin -> answer lines on stdout.
+  caldec-npu < requests.jsonl            (on the node)
+  ssh user@board caldec-npu < requests.jsonl   (remote: SSH is the authentication)
+Exit status 1 if any answer is an error."""
+import json, socket, sys
+PATH = "/run/caldec-npu/caldec.sock"
+TIMEOUT = 180   # seconds per answer, including a cold start of the service (~6 s); a dead service is an error
+s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM); s.settimeout(TIMEOUT)
+try:
+    s.connect(PATH)
+except OSError as e:
+    sys.exit("caldec-npu: cannot connect to %s: %s" % (PATH, e))
+r, w = s.makefile("rb"), s.makefile("wb"); bad = 0
+for line in sys.stdin.buffer:
+    if not line.strip():
+        continue
+    w.write(line if line.endswith(b"\n") else line + b"\n"); w.flush()
+    try:
+        ans = r.readline()
+    except socket.timeout:
+        sys.exit("caldec-npu: no answer within %d s (journalctl -u caldec-npu)" % TIMEOUT)
+    if not ans:
+        sys.exit("caldec-npu: service closed the connection")
+    bad += b'"error"' in ans[:12]
+    sys.stdout.buffer.write(ans); sys.stdout.flush()
+sys.exit(1 if bad else 0)

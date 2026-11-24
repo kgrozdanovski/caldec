@@ -1,0 +1,82 @@
+// Panther X2 (RK3566): describe the RKNN NPU for the vendor-derived rknpu DKMS driver on mainline 6.18.
+// Built from labels in the Armbian rk3566-panther-x2.dtb (__symbols__), NOT from numeric phandles.
+// Values come from the Panther's own stock BSP tree: pd_npu@6, npu@fde40000, npu-opp-table.
+// The NPU IOMMU (iommu@fde4b000) is enabled, as in the DKMS author's validated setup. Their kernel patch (32-bit
+// DMA mask + GFP_DMA32 page tables) is only needed when RAM lies above 4 GiB: boot with mem=3800M on Panther X2
+// (drops the 256 MiB bank at 0x1f0000000). Without the IOMMU, small models work but large ones fail
+// (job timeout / oops in rknpu_dma_buf_sync) - see panther-npu-noiommu.dts for that variant.
+// vdd_npu (DCDC_REG4) is already regulator-always-on in the Armbian tree; the overlay restates it.
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "rockchip,rk3566";
+
+	fragment@0 {				/* NPU power domain (RK3568_PD_NPU = 6), absent from mainline tree */
+		target = <&power>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			pd_npu: power-domain@6 {
+				reg = <6>;
+				/* stock: <&cru 0x27 &cru 0x25 &cru 0x26> = ACLK_NPU_PRE, HCLK_NPU_PRE, PCLK_NPU_PRE */
+				clocks = <&cru 0x27>, <&cru 0x25>, <&cru 0x26>;
+				pm_qos = <&qos_npu>;
+				#power-domain-cells = <0>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&vdd_npu>;
+		__overlay__ {
+			regulator-always-on;
+			regulator-boot-on;
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			npu_opp_table: npu-opp-table {
+				compatible = "operating-points-v2";
+				opp-200000000 { opp-hz = /bits/ 64 <200000000>; opp-microvolt = <825000 825000 1000000>; };
+				opp-400000000 { opp-hz = /bits/ 64 <400000000>; opp-microvolt = <825000 825000 1000000>; };
+				opp-600000000 { opp-hz = /bits/ 64 <600000000>; opp-microvolt = <825000 825000 1000000>; };
+				opp-700000000 { opp-hz = /bits/ 64 <700000000>; opp-microvolt = <850000 850000 1000000>; };
+				opp-800000000 { opp-hz = /bits/ 64 <800000000>; opp-microvolt = <875000 875000 1000000>; };
+				opp-900000000 { opp-hz = /bits/ 64 <900000000>; opp-microvolt = <925000 925000 1000000>; };
+			};
+
+			rknpu_mmu: iommu@fde4b000 {
+				compatible = "rockchip,rk3568-iommu", "rockchip,iommu-v2";
+				reg = <0x0 0xfde4b000 0x0 0x40>;
+				interrupts = <0 0x97 4>;
+				interrupt-names = "rknpu_mmu";
+				clocks = <&cru 0x28>, <&cru 0x29>;
+				clock-names = "aclk", "iface";
+				power-domains = <&power 6>;
+				#iommu-cells = <0>;
+				status = "okay";
+			};
+
+			rknpu: npu@fde40000 {
+				compatible = "rockchip,rk3568-rknpu", "rockchip,rknpu";
+				reg = <0x0 0xfde40000 0x0 0x10000>;
+				interrupts = <0 0x97 4>;		/* GIC_SPI 151, level high (stock) */
+				interrupt-names = "npu_irq";
+				clocks = <&scmi_clk 2>, <&cru 0x23>, <&cru 0x28>, <&cru 0x29>;
+				clock-names = "scmi_clk", "clk", "aclk", "hclk";
+				assigned-clocks = <&cru 0x23>;
+				assigned-clock-rates = <600000000>;	/* stock */
+				resets = <&cru 0x2b>, <&cru 0x2c>;
+				reset-names = "srst_a", "srst_h";
+				power-domains = <&power 6>;
+				operating-points-v2 = <&npu_opp_table>;
+				rknpu-supply = <&vdd_npu>;
+				iommus = <&rknpu_mmu>;
+				status = "okay";
+			};
+		};
+	};
+};

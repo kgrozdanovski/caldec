@@ -1,0 +1,14 @@
+# local toolchains and build outputs (models are published on Hugging Face, not here)
+pylib
+rknn-venv
+out/
+packed/onnx/
+packed/tables_s*/
+packed/cases*
+packed/buckets.json
+runner/act_head.npz
+runner/*.jsonl
+*.rknn
+*.onnx
+*.log
+*.logits
